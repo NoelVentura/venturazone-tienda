@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+/* BabyDoll Font */
+@font-face {
+  font-family: 'BabyDoll';
+  src: url('/fonts/BabyDoll.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* FairProsper Font */
+@font-face {
+  font-family: 'FairProsper';
+  src: url('/fonts/FairProsper.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Fallback para asegurar que la fuente se aplique */
+.font-babies {
+  font-family: 'BabyDoll', 'Caveat', cursive !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.05em !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  transform: rotate(-1deg);
+  transition: transform 0.3s ease;
+}
+
+.font-babies:hover {
+  transform: rotate(0deg);
+}
+
+/* Clase específica para "Bienvenidos" */
+  .font-bienvenidos {
+    font-family: 'BabyDoll', 'Caveat', cursive !important;
+    font-weight: 700 !important;
+    font-size: 1.1em !important;
+    letter-spacing: 0.08em !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.15);
+    transform: rotate(-2deg);
+    transition: all 0.3s ease;
+    color: #c6490f !important;
+  }
+
+.font-bienvenidos:hover {
+  transform: rotate(0deg) scale(1.05);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Clase para FairProsper */
+.font-fairprosper {
+  font-family: 'FairProsper', 'Arial', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.02em !important;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Variables CSS personalizadas para colores */
+:root {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  
+  --color-secondary-50: #fdf4ff;
+  --color-secondary-100: #fae8ff;
+  --color-secondary-200: #f5d0fe;
+  --color-secondary-300: #f0abfc;
+  --color-secondary-400: #e879f9;
+  --color-secondary-500: #d946ef;
+  --color-secondary-600: #c026d3;
+  --color-secondary-700: #a21caf;
+  --color-secondary-800: #86198f;
+  --color-secondary-900: #701a75;
+}
+
+/* Estilos base */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-300;
+    background-image: url('/images/paginaweb.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: -1;
+    pointer-events: none;
+  }
+  
+  * {
+    @apply transition-colors duration-200;
+  }
+  
+  *:focus {
+    @apply outline-none ring-2 ring-primary-500 ring-offset-2;
+  }
+}
+
+/* Modo oscuro */
+@layer base {
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .dark body::before {
+    background: rgba(17, 24, 39, 0.2);
+  }
+}
+
+/* Componentes personalizados */
+@layer components {
+  .btn-primary {
+    background: var(--color-primary-600);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background: var(--color-primary-700);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+  }
+  
+  .btn-secondary {
+    background: var(--color-secondary-600);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.2s;
+    display: inline-block;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-secondary:hover {
+    background: var(--color-secondary-700);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(192, 38, 211, 0.3);
+  }
+  
+  .card {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .dark .card {
+    background: rgba(31, 41, 55, 0.25);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+  
+  .section-padding {
+    padding: 4rem 0;
+  }
+  
+  .section-with-bg {
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 1rem 0;
+  }
+  
+  .dark .section-with-bg {
+    background: rgba(17, 24, 39, 0.25);
+  }
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  .bg-primary-50 { background-color: var(--color-primary-50); }
+  .bg-primary-100 { background-color: var(--color-primary-100); }
+  .bg-primary-200 { background-color: var(--color-primary-200); }
+  .bg-primary-300 { background-color: var(--color-primary-300); }
+  .bg-primary-400 { background-color: var(--color-primary-400); }
+  .bg-primary-500 { background-color: var(--color-primary-500); }
+  .bg-primary-600 { background-color: var(--color-primary-600); }
+  .bg-primary-700 { background-color: var(--color-primary-700); }
+  .bg-primary-800 { background-color: var(--color-primary-800); }
+  .bg-primary-900 { background-color: var(--color-primary-900); }
+  
+  .text-primary-50 { color: var(--color-primary-50); }
+  .text-primary-100 { color: var(--color-primary-100); }
+  .text-primary-200 { color: var(--color-primary-200); }
+  .text-primary-300 { color: var(--color-primary-300); }
+  .text-primary-400 { color: var(--color-primary-400); }
+  .text-primary-500 { color: var(--color-primary-500); }
+  .text-primary-600 { color: var(--color-primary-600); }
+  .text-primary-700 { color: var(--color-primary-700); }
+  .text-primary-800 { color: var(--color-primary-800); }
+  .text-primary-900 { color: var(--color-primary-900); }
+  
+  .ring-primary-500 { --tw-ring-color: var(--color-primary-500); }
+  .ring-primary-600 { --tw-ring-color: var(--color-primary-600); }
+  .ring-primary-700 { --tw-ring-color: var(--color-primary-700); }
+}

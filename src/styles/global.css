@@ -1,0 +1,364 @@
+@import "tailwindcss";
+
+/* Variables CSS personalizadas para colores */
+:root {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  
+  --color-secondary-50: #fdf4ff;
+  --color-secondary-100: #fae8ff;
+  --color-secondary-200: #f5d0fe;
+  --color-secondary-300: #f0abfc;
+  --color-secondary-400: #e879f9;
+  --color-secondary-500: #d946ef;
+  --color-secondary-600: #c026d3;
+  --color-secondary-700: #a21caf;
+  --color-secondary-800: #86198f;
+  --color-secondary-900: #701a75;
+}
+
+/* Estilos base para el modo claro y oscuro */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-white text-gray-900 transition-colors duration-300;
+    /* Imagen de fondo */
+    background-image: url('/images/LOGO.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    position: relative;
+  }
+  
+  /* Overlay para mejorar la legibilidad */
+  body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    z-index: -1;
+  }
+  
+  .dark body {
+    @apply bg-gray-900 text-gray-100;
+  }
+  
+  .dark body::before {
+    background: rgba(17, 24, 39, 0.2);
+  }
+  
+  /* Mejoras de accesibilidad */
+  *:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px white;
+  }
+  
+  .dark *:focus {
+    box-shadow: 0 0 0 2px var(--color-primary-500), 0 0 0 4px #111827;
+  }
+  
+  /* Transiciones suaves */
+  * {
+    @apply transition-colors duration-200;
+  }
+}
+
+/* Estilos personalizados para componentes */
+@layer components {
+  .btn-primary {
+    background-color: var(--color-primary-600);
+    color: white;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    transform: scale(1);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--color-primary-700);
+    transform: scale(1.05);
+  }
+  
+  .btn-primary:focus {
+    box-shadow: 0 0 0 4px var(--color-primary-300);
+  }
+  
+  .btn-secondary {
+    background-color: #e5e7eb;
+    color: #111827;
+    font-weight: 600;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+    transform: scale(1);
+  }
+  
+  .btn-secondary:hover {
+    background-color: #d1d5db;
+    transform: scale(1.05);
+  }
+  
+  .dark .btn-secondary {
+    background-color: #374151;
+    color: #f9fafb;
+  }
+  
+  .dark .btn-secondary:hover {
+    background-color: #4b5563;
+  }
+  
+  .card {
+    background-image: url('/images/CUIDADOPERSONAL.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 0.75rem;
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+      0 4px 6px -2px rgba(0, 0, 0, 0.05),
+      0 0 20px rgba(255, 255, 255, 0.3),
+      0 0 40px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    padding: 1.5rem;
+    border: 1px solid rgba(229, 231, 235, 0.5);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1;
+  }
+  
+  .card > * {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 0.75rem;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  
+  .card:hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.15), 
+      0 10px 10px -5px rgba(0, 0, 0, 0.08),
+      0 0 30px rgba(255, 255, 255, 0.4),
+      0 0 60px rgba(255, 255, 255, 0.2),
+      0 0 100px rgba(255, 255, 255, 0.1),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transform: translateY(-4px) scale(1.02);
+  }
+  
+  .card:hover::before {
+    opacity: 1;
+  }
+  
+  .dark .card {
+    border-color: rgba(55, 65, 81, 0.5);
+    box-shadow: 
+      0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+      0 4px 6px -2px rgba(0, 0, 0, 0.2),
+      0 0 20px rgba(59, 130, 246, 0.2),
+      0 0 40px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(59, 130, 246, 0.1);
+  }
+  
+  .dark .card::before {
+    background: rgba(17, 24, 39, 0.85);
+    backdrop-filter: blur(5px);
+  }
+  
+  .dark .card:hover {
+    box-shadow: 
+      0 20px 25px -5px rgba(0, 0, 0, 0.4), 
+      0 10px 10px -5px rgba(0, 0, 0, 0.3),
+      0 0 30px rgba(59, 130, 246, 0.3),
+      0 0 60px rgba(59, 130, 246, 0.2),
+      0 0 100px rgba(59, 130, 246, 0.1),
+      inset 0 1px 0 rgba(59, 130, 246, 0.2);
+  }
+  
+  .section-padding {
+    padding: 4rem 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    .section-padding {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .section-padding {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+  
+  /* Clases para secciones con fondo */
+  .section-with-bg {
+    background-color: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+  }
+  
+  .dark .section-with-bg {
+    background-color: rgba(17, 24, 39, 0.25);
+  }
+}
+
+/* Utilidades personalizadas */
+.bg-primary-50 { background-color: var(--color-primary-50); }
+.bg-primary-100 { background-color: var(--color-primary-100); }
+.bg-primary-200 { background-color: var(--color-primary-200); }
+.bg-primary-300 { background-color: var(--color-primary-300); }
+.bg-primary-400 { background-color: var(--color-primary-400); }
+.bg-primary-500 { background-color: var(--color-primary-500); }
+.bg-primary-600 { background-color: var(--color-primary-600); }
+.bg-primary-700 { background-color: var(--color-primary-700); }
+.bg-primary-800 { background-color: var(--color-primary-800); }
+.bg-primary-900 { background-color: var(--color-primary-900); }
+
+.bg-secondary-50 { background-color: var(--color-secondary-50); }
+.bg-secondary-100 { background-color: var(--color-secondary-100); }
+.bg-secondary-200 { background-color: var(--color-secondary-200); }
+.bg-secondary-300 { background-color: var(--color-secondary-300); }
+.bg-secondary-400 { background-color: var(--color-secondary-400); }
+.bg-secondary-500 { background-color: var(--color-secondary-500); }
+.bg-secondary-600 { background-color: var(--color-secondary-600); }
+.bg-secondary-700 { background-color: var(--color-secondary-700); }
+.bg-secondary-800 { background-color: var(--color-secondary-800); }
+.bg-secondary-900 { background-color: var(--color-secondary-900); }
+
+.text-primary-50 { color: var(--color-primary-50); }
+.text-primary-100 { color: var(--color-primary-100); }
+.text-primary-200 { color: var(--color-primary-200); }
+.text-primary-300 { color: var(--color-primary-300); }
+.text-primary-400 { color: var(--color-primary-400); }
+.text-primary-500 { color: var(--color-primary-500); }
+.text-primary-600 { color: var(--color-primary-600); }
+.text-primary-700 { color: var(--color-primary-700); }
+.text-primary-800 { color: var(--color-primary-800); }
+.text-primary-900 { color: var(--color-primary-900); }
+
+.text-secondary-50 { color: var(--color-secondary-50); }
+.text-secondary-100 { color: var(--color-secondary-100); }
+.text-secondary-200 { color: var(--color-secondary-200); }
+.text-secondary-300 { color: var(--color-secondary-300); }
+.text-secondary-400 { color: var(--color-secondary-400); }
+.text-secondary-500 { color: var(--color-secondary-500); }
+.text-secondary-600 { color: var(--color-secondary-600); }
+.text-secondary-700 { color: var(--color-secondary-700); }
+.text-secondary-800 { color: var(--color-secondary-800); }
+.text-secondary-900 { color: var(--color-secondary-900); }
+
+.border-primary-500 { border-color: var(--color-primary-500); }
+.border-secondary-500 { border-color: var(--color-secondary-500); }
+
+.ring-primary-500 { box-shadow: 0 0 0 1px var(--color-primary-500); }
+.ring-primary-300 { box-shadow: 0 0 0 1px var(--color-primary-300); }
+.ring-secondary-500 { box-shadow: 0 0 0 1px var(--color-secondary-500); }
+
+.from-primary-500 { background-image: linear-gradient(to right, var(--color-primary-500), transparent); }
+.to-secondary-500 { background-image: linear-gradient(to right, transparent, var(--color-secondary-500)); }
+.from-primary-500.to-secondary-500 { background-image: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-500)); }
+.from-primary-500.to-secondary-600 { background-image: linear-gradient(to right, var(--color-primary-500), var(--color-secondary-600)); }
+
+/* Estilos para el scroll horizontal de productos */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos para las tarjetas de productos */
+.product-card {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(229, 231, 235, 0.5);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    0 0 20px rgba(255, 255, 255, 0.3),
+    0 0 40px rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.product-card:hover {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 
+    0 4px 6px -2px rgba(0, 0, 0, 0.05),
+    0 0 30px rgba(255, 255, 255, 0.4),
+    0 0 60px rgba(255, 255, 255, 0.2);
+  transform: translateY(-8px) scale(1.02);
+}
+
+.dark .product-card {
+  background-color: rgba(31, 41, 55, 0.95);
+  border-color: rgba(55, 65, 81, 0.5);
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.3), 
+    0 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(59, 130, 246, 0.2),
+    0 0 40px rgba(59, 130, 246, 0.1);
+}
+
+.dark .product-card:hover {
+  box-shadow: 
+    0 10px 15px -3px rgba(0, 0, 0, 0.3), 
+    0 4px 6px -2px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(59, 130, 246, 0.3),
+    0 0 60px rgba(59, 130, 246, 0.2);
+}
+
+/* Indicadores de scroll */
+.scroll-indicator {
+  transition: all 0.3s ease;
+}
+
+.scroll-indicator.active {
+  background-color: var(--color-primary-600);
+  transform: scale(1.2);
+}
+
+.dark .scroll-indicator.active {
+  background-color: var(--color-primary-400);
+}

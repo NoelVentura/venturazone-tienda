@@ -1,46 +1,144 @@
-# Astro Starter Kit: Basics
+# Venture Zone - Tienda Online
 
-```sh
-npm create astro@latest -- --template basics
+## 🛍️ Descripción
+Venture Zone es una tienda online especializada en perfumes, cuidado corporal, maquillaje y suplementos.
+
+## 📋 Estructura de Navegación
+
+La aplicación web sigue el siguiente flujo de navegación:
+
+```
+1. catalogo.html (Página Principal)
+   ├── pago.html (Proceso de pago)
+   ├── areaperfumes.html (Catálogo de Perfumes)
+   ├── Cuidadocorporal.html (Productos de Cuidado Corporal)
+   ├── maquillaje.html (Productos de Maquillaje)
+   └── suplementos.html (Suplementos)
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 🗂️ Estructura de Archivos
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
+```
+Webventurazone/
 ├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+│   ├── documents/           # Páginas HTML
+│   │   ├── catalogo.html    # Página principal del catálogo
+│   │   ├── areaperfumes.html
+│   │   ├── Cuidadocorporal.html
+│   │   ├── maquillaje.html
+│   │   └── suplementos.html
+│   ├── pago.html            # Página de checkout
+│   ├── css/                 # Estilos
+│   │   ├── catalogo.css
+│   │   └── pago.css
+│   ├── js/                  # Scripts JavaScript
+│   │   ├── carrito.js
+│   │   ├── catalogo.js
+│   │   ├── pago.js
+│   │   └── productos-data.js
+│   ├── images/              # Imágenes de productos
+│   ├── videos/              # Videos promocionales
+│   └── fonts/               # Fuentes personalizadas
+├── src/                     # Código fuente Astro
+└── server.js                # Servidor Node.js
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🚀 Características
 
-## 🧞 Commands
+- ✅ Catálogo de productos por categorías
+- ✅ Sistema de carrito de compras
+- ✅ Proceso de checkout completo
+- ✅ Métodos de pago: WhatsApp, Transferencia, Efectivo
+- ✅ Integración con WhatsApp para pedidos
+- ✅ Chatbot de soporte (Botpress)
+- ✅ Diseño responsive
+- ✅ Interfaz moderna y atractiva
 
-All commands are run from the root of the project, from a terminal:
+## 💻 Tecnologías
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+- HTML5
+- CSS3
+- JavaScript
+- Astro
+- Node.js
+- LocalStorage para carrito
 
-## 👀 Want to learn more?
+## 📦 Instalación
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Clonar el repositorio:
+```bash
+git clone [URL-DEL-REPOSITORIO]
+cd Webventurazone
+```
+
+2. Instalar dependencias:
+```bash
+pnpm install
+```
+
+3. Iniciar servidor de desarrollo:
+```bash
+pnpm run dev
+```
+
+O usar el archivo bat incluido:
+```bash
+INICIAR-AHORA.bat
+```
+
+## 🌐 Páginas Principales
+
+### 1. Catálogo (catalogo.html)
+Página principal que muestra todas las categorías de productos:
+- Perfumes
+- Cuidado Corporal
+- Maquillaje
+- Suplementos
+
+### 2. Pago (pago.html)
+Página de checkout donde el usuario:
+- Completa sus datos personales
+- Ingresa dirección de envío
+- Selecciona método de pago
+- Confirma su pedido
+
+### 3. Áreas de Productos
+- **areaperfumes.html**: Catálogo de perfumes
+- **Cuidadocorporal.html**: Productos de cuidado personal
+- **maquillaje.html**: Productos de maquillaje
+- **suplementos.html**: Suplementos nutricionales
+
+## 💳 Métodos de Pago
+
+1. **WhatsApp**: Envío directo de pedido por WhatsApp
+2. **Transferencia Bancaria**: Con datos de cuenta incluidos
+3. **Efectivo**: Pago contra entrega
+
+## 📱 Contacto
+
+- WhatsApp: +52 311 121 3128
+- Chatbot integrado para soporte 24/7
+
+## 📝 Notas de Desarrollo
+
+- El carrito se guarda en LocalStorage
+- Las imágenes están optimizadas para web
+- El diseño es completamente responsive
+- Integración con Botpress para chatbot
+
+## 🎨 Personalización
+
+Las fuentes personalizadas están disponibles en `public/fonts/`:
+- BabiesShower.ttf
+- BabyDoll.ttf
+- Cathalia.ttf
+- FairProsper.ttf
+- Y más...
+
+## 📄 Licencia
+
+Este proyecto es propiedad de Venture Zone.
+
+---
+
+Desarrollado con ❤️ para Venture Zone

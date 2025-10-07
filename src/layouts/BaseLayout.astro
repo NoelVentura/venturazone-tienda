@@ -1,0 +1,601 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/global.css';
+
+export interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = 'VenturaZone - Productos de Salud y Bienestar Personal y Familiar',
+  description = 'Tu destino confiable para productos de salud y bienestar personal y familiar. Ofrecemos una amplia selección de productos de calidad para cuidar de ti y los tuyos.',
+  image = '/og-image.jpg',
+  canonical = Astro.url.href,
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonical} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.url)} />
+    <meta property="og:site_name" content="VenturaZone" />
+    <meta property="og:locale" content="es_ES" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(image, Astro.url)} />
+    
+    <!-- Additional Meta Tags -->
+    <meta name="author" content="VenturaZone" />
+    <meta name="keywords" content="salud, bienestar, productos naturales, cuidado personal, familia, venturazone, honduras, méxico" />
+    <meta name="theme-color" content="#0ea5e9" />
+    <meta name="msapplication-TileColor" content="#0ea5e9" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    
+         <!-- Babies Shower Font Alternative -->
+     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+     
+     <!-- FairProsper Font Alternative -->
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Botpress Chat -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js" defer></script>
+    <script src="https://files.bpcontent.cloud/2025/04/21/19/20250421193440-PR19SX7F.js" defer></script>
+    
+    <!-- Configuración adicional para Botpress -->
+    <script>
+      window.addEventListener('load', function() {
+        // Esperar a que Botpress se cargue
+        setTimeout(function() {
+          if (typeof window.botpress !== 'undefined') {
+            console.log('Botpress cargado y listo');
+            // Hacer el chat disponible globalmente
+            window.openBotpressChat = function() {
+              if (window.botpress && window.botpress.webchat) {
+                window.botpress.webchat.open();
+              }
+            };
+          }
+          
+          // También intentar hacer clic directo en el botón del widget
+          setTimeout(function() {
+            const botpressButton = document.querySelector('[data-bp-widget-button], [class*="bp-widget-button"]');
+            if (botpressButton) {
+              console.log('Botón de Botpress encontrado');
+            }
+          }, 1000);
+          
+        }, 2000);
+      });
+    </script>
+    
+    <!-- Estilos para animaciones del botón flotante de chat -->
+    <style>
+      /* Animación de salto (bounce) cada 3 segundos */
+      @keyframes chatBounce {
+        0%, 80%, 100% {
+          transform: translateY(0);
+        }
+        40% {
+          transform: translateY(-8px);
+        }
+        60% {
+          transform: translateY(-4px);
+        }
+      }
+      
+      /* Aplicar animación a TODOS los elementos posibles de Botpress */
+      [data-bp-widget-button],
+      [class*="bp-widget-button"],
+      [class*="botpress-webchat-button"],
+      [class*="bp-widget"],
+      [id*="botpress"],
+      [id*="bp-widget"],
+      iframe[src*="botpress"],
+      iframe[src*="bp-widget"],
+      .bp-widget,
+      .botpress-webchat,
+      .bp-web-widget-container,
+      .bp-web-widget-button,
+      .bp-widget-button,
+      .botpress-webchat-button,
+      /* Selectores más específicos */
+      div[class*="botpress"],
+      div[class*="bp-widget"],
+      button[class*="botpress"],
+      button[class*="bp-widget"],
+      /* Selectores por atributos */
+      [data-testid*="botpress"],
+      [data-testid*="bp-widget"],
+      /* Selectores genéricos para cualquier elemento de chat */
+      [class*="chat"],
+      [class*="widget"],
+      [id*="chat"],
+      [id*="widget"] {
+        animation: chatBounce 3s ease-in-out infinite !important;
+        transition: all 0.3s ease !important;
+      }
+      
+      /* Efecto hover adicional */
+      [data-bp-widget-button]:hover,
+      [class*="bp-widget-button"]:hover,
+      [class*="botpress-webchat-button"]:hover,
+      [class*="bp-widget"]:hover,
+      [id*="botpress"]:hover,
+      [id*="bp-widget"]:hover,
+      .bp-widget:hover,
+      .botpress-webchat:hover,
+      .bp-web-widget-container:hover,
+      .bp-web-widget-button:hover,
+      .bp-widget-button:hover,
+      .botpress-webchat-button:hover,
+      div[class*="botpress"]:hover,
+      div[class*="bp-widget"]:hover,
+      button[class*="botpress"]:hover,
+      button[class*="bp-widget"]:hover {
+        transform: scale(1.1) !important;
+        box-shadow: 0 8px 25px rgba(59, 130, 246, 0.4) !important;
+      }
+      
+      /* Tooltip personalizado para el botón de chat */
+      .chat-tooltip {
+        position: fixed;
+        bottom: 100px;
+        right: 80px;
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        padding: 12px 16px;
+        border-radius: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3);
+        z-index: 9998;
+        opacity: 0;
+        transform: translateX(20px);
+        transition: all 0.3s ease;
+        pointer-events: none;
+        max-width: 200px;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        /* Asegurar que sea visible */
+        display: block !important;
+        visibility: visible !important;
+      }
+      
+      .chat-tooltip::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        right: 20px;
+        width: 0;
+        height: 0;
+        border-left: 8px solid transparent;
+        border-right: 8px solid transparent;
+        border-top: 8px solid #3b82f6;
+      }
+      
+      .chat-tooltip.show {
+        opacity: 1 !important;
+        transform: translateX(0) !important;
+        visibility: visible !important;
+      }
+      
+      /* Ocultar tooltip en pantallas muy pequeñas */
+      @media (max-width: 480px) {
+        .chat-tooltip {
+          display: none !important;
+        }
+      }
+      
+      /* Ocultar tooltip en pantallas medianas */
+      @media (max-width: 768px) {
+        .chat-tooltip {
+          right: 70px;
+          bottom: 90px;
+          font-size: 12px;
+          padding: 10px 14px;
+          max-width: 160px;
+        }
+      }
+    </style>
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "VenturaZone",
+        "url": "https://venturazone.com",
+        "logo": "https://venturazone.com/logo.png",
+        "description": "Tu destino confiable para productos de salud y bienestar personal y familiar",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Tepic",
+          "addressRegion": "Nayarit",
+          "addressCountry": "México"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+52-311-121-31-28",
+          "contactType": "customer service",
+          "email": "info@venturazone.com"
+        },
+        "sameAs": [
+          "https://facebook.com/venturazone",
+          "https://instagram.com/venturazone",
+          "https://youtube.com/venturazone"
+        ]
+      }
+    </script>
+  </head>
+  
+  <body class="min-h-screen flex flex-col">
+    <!-- Skip to main content link for accessibility -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary-600 text-white px-4 py-2 rounded-md z-50">
+      Saltar al contenido principal
+    </a>
+    
+    <Header />
+    
+    <main id="main-content" class="flex-grow">
+      <slot />
+    </main>
+    
+    <!-- Tooltip de prueba simple y directo -->
+    <div id="simple-tooltip" style="position: fixed; bottom: 100px; right: 80px; background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; padding: 12px 16px; border-radius: 12px; font-size: 14px; font-weight: 500; box-shadow: 0 8px 32px rgba(59, 130, 246, 0.3); z-index: 9998; opacity: 1; transform: translateX(0); transition: all 0.3s ease; pointer-events: none; max-width: 200px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.2); display: block !important; visibility: visible !important;">
+      💬 ¿Necesitas ayuda? Escríbenos
+    </div>
+    
+    <Footer />
+    
+    <!-- Script para inicializar el tema -->
+    <script>
+      // Inicializar el tema inmediatamente para evitar flash
+      (function() {
+        const theme = localStorage.getItem('theme') || 
+                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        
+        if (theme === 'dark') {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    
+    <!-- Script para el tooltip del botón flotante de chat -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        console.log('🚀 Iniciando animaciones del botón flotante...');
+        
+        // Obtener el tooltip directo
+        const simpleTooltip = document.getElementById('simple-tooltip');
+        console.log('🔍 Tooltip encontrado:', simpleTooltip);
+        
+        // Función para encontrar CUALQUIER elemento que pueda ser el botón de chat
+        function findChatButton() {
+          // Primero buscar el botón de prueba
+          const testButton = document.getElementById('test-chat-button');
+          if (testButton) {
+            console.log('🎯 Botón de prueba encontrado');
+            return testButton;
+          }
+          
+          // Lista exhaustiva de selectores
+          const selectors = [
+            // Selectores específicos de Botpress
+            '[data-bp-widget-button]',
+            '[class*="bp-widget-button"]',
+            '[class*="botpress-webchat-button"]',
+            '[class*="bp-widget"]',
+            '[id*="botpress"]',
+            '[id*="bp-widget"]',
+            '.bp-widget',
+            '.botpress-webchat',
+            '.bp-web-widget-container',
+            '.bp-web-widget-button',
+            '.bp-widget-button',
+            '.botpress-webchat-button',
+            
+            // Selectores más específicos
+            'div[class*="botpress"]',
+            'div[class*="bp-widget"]',
+            'button[class*="botpress"]',
+            'button[class*="bp-widget"]',
+            
+            // Selectores por atributos
+            '[data-testid*="botpress"]',
+            '[data-testid*="bp-widget"]',
+            '[data-testid*="floating-button"]',
+            
+            // Selectores genéricos de chat
+            '[class*="chat"]',
+            '[class*="widget"]',
+            '[id*="chat"]',
+            '[id*="widget"]',
+            
+            // Buscar por posición (esquina inferior derecha)
+            'div[style*="bottom"]',
+            'div[style*="right"]',
+            'button[style*="bottom"]',
+            'button[style*="right"]',
+            
+            // Buscar por z-index alto (elementos flotantes)
+            'div[style*="z-index"]',
+            'button[style*="z-index"]',
+            
+            // Buscar iframes
+            'iframe[src*="botpress"]',
+            'iframe[src*="bp-widget"]',
+            'iframe[src*="chat"]',
+            'iframe[src*="widget"]'
+          ];
+          
+          // Buscar con cada selector
+          for (let selector of selectors) {
+            try {
+              const elements = document.querySelectorAll(selector);
+              for (let element of elements) {
+                // Verificar si el elemento está en la esquina inferior derecha
+                const rect = element.getBoundingClientRect();
+                const isBottomRight = rect.bottom > window.innerHeight - 100 && rect.right > window.innerWidth - 100;
+                
+                // Verificar si tiene un tamaño razonable para ser un botón
+                const hasReasonableSize = rect.width > 30 && rect.height > 30 && rect.width < 200 && rect.height < 200;
+                
+                if (isBottomRight && hasReasonableSize) {
+                  console.log('🎯 Botón de chat encontrado:', selector, element);
+                  return element;
+                }
+              }
+            } catch (e) {
+              console.log('Error con selector:', selector, e);
+            }
+          }
+          
+          // Si no se encuentra, buscar cualquier elemento en la esquina inferior derecha
+          const allElements = document.querySelectorAll('div, button, iframe');
+          for (let element of allElements) {
+            const rect = element.getBoundingClientRect();
+            const isBottomRight = rect.bottom > window.innerHeight - 100 && rect.right > window.innerWidth - 100;
+            const hasReasonableSize = rect.width > 30 && rect.height > 30 && rect.width < 200 && rect.height < 200;
+            
+            if (isBottomRight && hasReasonableSize) {
+              console.log('🎯 Elemento flotante encontrado en esquina inferior derecha:', element);
+              return element;
+            }
+          }
+          
+          return null;
+        }
+        
+        // Función para aplicar animaciones de manera agresiva
+        function applyAnimations() {
+          const chatButton = findChatButton();
+          if (chatButton) {
+            console.log('✨ Aplicando animaciones al botón de chat...');
+            
+            // Aplicar animación de salto
+            chatButton.style.animation = 'chatBounce 3s ease-in-out infinite';
+            chatButton.style.transition = 'all 0.3s ease';
+            
+            // Agregar efecto hover
+            chatButton.addEventListener('mouseenter', function() {
+              this.style.transform = 'scale(1.1)';
+              this.style.boxShadow = '0 8px 25px rgba(59, 130, 246, 0.4)';
+            });
+            
+            chatButton.addEventListener('mouseleave', function() {
+              this.style.transform = 'scale(1)';
+              this.style.boxShadow = 'none';
+            });
+            
+            console.log('✅ Animaciones aplicadas exitosamente');
+            return true;
+          } else {
+            console.log('❌ No se encontró el botón de chat');
+            return false;
+          }
+        }
+        
+        // Función simple para mostrar el tooltip
+        function showSimpleTooltip() {
+          if (simpleTooltip && window.innerWidth > 480) {
+            console.log('💬 Mostrando tooltip simple...');
+            
+            // Mostrar el tooltip
+            simpleTooltip.style.opacity = '1';
+            simpleTooltip.style.transform = 'translateX(0)';
+            simpleTooltip.style.visibility = 'visible';
+            
+            console.log('💬 Tooltip simple mostrado');
+            
+            // Ocultar después de 4 segundos
+            setTimeout(() => {
+              simpleTooltip.style.opacity = '0';
+              simpleTooltip.style.transform = 'translateX(20px)';
+              console.log('💬 Tooltip simple ocultado');
+            }, 4000);
+          } else {
+            console.log('❌ No se puede mostrar tooltip - elemento no encontrado o pantalla muy pequeña');
+          }
+        }
+        
+        // Aplicar animaciones múltiples veces
+        console.log('🔄 Aplicando animaciones...');
+        applyAnimations();
+        
+        // Reintentar varias veces
+        setTimeout(() => {
+          console.log('🔄 Reintento 1...');
+          applyAnimations();
+        }, 2000);
+        
+        setTimeout(() => {
+          console.log('🔄 Reintento 2...');
+          applyAnimations();
+        }, 5000);
+        
+        setTimeout(() => {
+          console.log('🔄 Reintento 3...');
+          applyAnimations();
+        }, 10000);
+        
+        setTimeout(() => {
+          console.log('🔄 Reintento 4...');
+          applyAnimations();
+        }, 15000);
+        
+        // Observar cambios en el DOM
+        const observer = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type === 'childList') {
+              const chatButton = findChatButton();
+              if (chatButton) {
+                console.log('🎉 Botón de chat detectado por observer!');
+                applyAnimations();
+                observer.disconnect();
+              }
+            }
+          });
+        });
+        
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+        
+        // Mostrar tooltip simple
+        setTimeout(showSimpleTooltip, 2000);
+        setTimeout(showSimpleTooltip, 5000);
+        setInterval(showSimpleTooltip, 30000);
+        
+        // Event listeners
+        document.addEventListener('click', function(e) {
+          const target = e.target;
+          const chatButton = findChatButton();
+          if (chatButton && (target === chatButton || chatButton.contains(target))) {
+            if (simpleTooltip) {
+              simpleTooltip.style.opacity = '0';
+              simpleTooltip.style.transform = 'translateX(20px)';
+            }
+          }
+        });
+        
+        let scrollTimeout;
+        window.addEventListener('scroll', function() {
+          if (simpleTooltip) {
+            simpleTooltip.style.opacity = '0';
+            simpleTooltip.style.transform = 'translateX(20px)';
+          }
+          clearTimeout(scrollTimeout);
+        });
+        
+        document.addEventListener('mousemove', function(e) {
+          const chatButton = findChatButton();
+          if (chatButton && simpleTooltip) {
+            const buttonRect = chatButton.getBoundingClientRect();
+            const mouseX = e.clientX;
+            const mouseY = e.clientY;
+            
+            if (mouseX >= buttonRect.left - 50 && mouseX <= buttonRect.right + 50 &&
+                mouseY >= buttonRect.top - 50 && mouseY <= buttonRect.bottom + 50) {
+              simpleTooltip.style.opacity = '0';
+              simpleTooltip.style.transform = 'translateX(20px)';
+            }
+          }
+        });
+        
+        console.log('🎯 Script de animaciones cargado completamente');
+      });
+    </script>
+    
+    <!-- Script global para autoplay de videos -->
+    <script>
+      // Función global para habilitar autoplay en todos los videos
+      function enableVideoAutoplay() {
+        const allVideos = document.querySelectorAll('video');
+        
+        allVideos.forEach((video, index) => {
+          console.log(`🎬 Configurando video ${index + 1}:`, video.src || video.currentSrc);
+          
+          // Configurar propiedades para autoplay
+          video.muted = true;
+          video.loop = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          
+          // Intentar reproducir inmediatamente
+          const playVideo = async () => {
+            try {
+              if (video.paused) {
+                await video.play();
+                console.log(`✅ Video ${index + 1}: Reproducción exitosa`);
+              }
+            } catch (error) {
+              console.log(`⚠️ Video ${index + 1}: Autoplay bloqueado, esperando interacción`);
+            }
+          };
+          
+          // Intentar reproducir cuando el video esté listo
+          video.addEventListener('canplay', playVideo);
+          video.addEventListener('loadeddata', playVideo);
+          
+          // Intentar reproducir inmediatamente
+          playVideo();
+        });
+      }
+      
+      // Habilitar autoplay cuando se carga la página
+      document.addEventListener('DOMContentLoaded', enableVideoAutoplay);
+      
+      // Habilitar autoplay en cualquier interacción del usuario
+      const enableOnInteraction = () => {
+        enableVideoAutoplay();
+        // Remover listeners después de la primera interacción
+        document.removeEventListener('click', enableOnInteraction);
+        document.removeEventListener('touchstart', enableOnInteraction);
+        document.removeEventListener('keydown', enableOnInteraction);
+      };
+      
+      document.addEventListener('click', enableOnInteraction);
+      document.addEventListener('touchstart', enableOnInteraction);
+      document.addEventListener('keydown', enableOnInteraction);
+      
+      // Habilitar autoplay cuando la página se vuelve visible
+      document.addEventListener('visibilitychange', () => {
+        if (!document.hidden) {
+          enableVideoAutoplay();
+        }
+      });
+    </script>
+  </body>
+</html>

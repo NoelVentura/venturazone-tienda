@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pago - Venture Zone</title>
+    <link rel="stylesheet" href="css/pago.css">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Venture Zone</h2>
+                <p class="tagline">Tu tienda de confianza</p>
+            </div>
+            <div class="nav-actions">
+                <a href="documents/catalogo.html" class="nav-link">Inicio</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <div class="container">
+        <div class="checkout-container">
+            <!-- Título -->
+            <div class="checkout-header">
+                <h1>Finalizar Compra</h1>
+                <p>Completa tus datos para procesar el pago</p>
+            </div>
+
+            <div class="checkout-content">
+                <!-- Formulario de datos -->
+                <div class="checkout-form">
+                    <form id="checkoutForm" class="form-container">
+                        <h2>Datos de Contacto</h2>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre *</label>
+                                <input type="text" id="nombre" name="nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="apellido">Apellido *</label>
+                                <input type="text" id="apellido" name="apellido" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="telefono">Teléfono *</label>
+                                <input type="tel" id="telefono" name="telefono" required>
+                            </div>
+                        </div>
+
+                        <h2>Dirección de Envío</h2>
+                        
+                        <div class="form-group">
+                            <label for="direccion">Dirección *</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="ciudad">Ciudad *</label>
+                                <input type="text" id="ciudad" name="ciudad" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="codigoPostal">Código Postal *</label>
+                                <input type="text" id="codigoPostal" name="codigoPostal" required>
+                            </div>
+                        </div>
+
+                        <h2>Método de Pago</h2>
+                        
+                        <div class="form-group">
+                            <label for="metodoPago">Método de Pago *</label>
+                            <select id="metodoPago" name="metodoPago" required>
+                                <option value="">Selecciona un método</option>
+                                <option value="WhatsApp">WhatsApp</option>
+                                <option value="Transferencia">Transferencia</option>
+                                <option value="Efectivo">Efectivo</option>
+                            </select>
+                        </div>
+
+                        <!-- Información de WhatsApp -->
+                        <div id="whatsappInfo" class="whatsapp-info" style="display: none;">
+                            <h3>Información para WhatsApp</h3>
+                            <div class="whatsapp-details">
+                                <p><strong>Envía tu pedido por WhatsApp:</strong></p>
+                                <div class="whatsapp-info-box">
+                                    <div class="whatsapp-number">
+                                        <span class="whatsapp-label">Número de WhatsApp:</span>
+                                        <a href="https://wa.me/5213111213128" target="_blank" class="whatsapp-link">
+                                            <span class="whatsapp-icon">📱</span>
+                                            +52 311 121 3128
+                                        </a>
+                                    </div>
+                                    <div class="whatsapp-instructions">
+                                        <p><strong>Instrucciones:</strong></p>
+                                        <ul>
+                                            <li>Haz clic en el número para abrir WhatsApp</li>
+                                            <li>Envía un mensaje con los datos de tu pedido</li>
+                                            <li>Incluye el número de pedido que aparecerá en la confirmación</li>
+                                            <li>Espera la confirmación del pago</li>
+                                        </ul>
+                                    </div>
+                                    <button id="generarMensajeWhatsApp" class="btn-whatsapp">
+                                        📱 Generar mensaje para WhatsApp
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Información de transferencia -->
+                        <div id="transferenciaInfo" class="transferencia-info" style="display: none;">
+                            <h3>Información para Transferencia</h3>
+                            <div class="transferencia-details">
+                                <p><strong>Realiza tu transferencia a la siguiente cuenta:</strong></p>
+                                <div class="cuenta-info">
+                                    <img src="images/cuenta.jpg" alt="Datos de la cuenta bancaria" class="cuenta-image">
+                                    
+                                    <!-- Datos bancarios -->
+                                    <div class="datos-bancarios">
+                                        <div class="dato-item">
+                                            <span class="dato-label">Número de Tarjeta:</span>
+                                            <span class="dato-valor">4152 3141 2030 6249</span>
+                                        </div>
+                                        <div class="dato-item">
+                                            <span class="dato-label">Número de Cuenta:</span>
+                                            <span class="dato-valor">007-406-730015205158-84</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <p class="transferencia-note">Una vez realizada la transferencia, envía el comprobante por WhatsApp al número que aparecerá en tu confirmación.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="comentarios">Comentarios adicionales</label>
+                            <textarea id="comentarios" name="comentarios" rows="4" placeholder="Instrucciones especiales para la entrega..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn-secondary" onclick="window.history.back()">Volver al Carrito</button>
+                            <button type="submit" class="btn-primary">Procesar Pago</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Resumen del pedido -->
+                <div class="order-summary">
+                    <h2>Resumen del Pedido</h2>
+                    
+                    <div class="summary-section">
+                        <h3>Productos</h3>
+                        <div id="productosResumen" class="productos-lista">
+                            <!-- Los productos se cargarán dinámicamente -->
+                        </div>
+                    </div>
+
+                    <div class="summary-section">
+                        <h3>Resumen de Costos</h3>
+                        <div class="cost-breakdown">
+                            <div class="cost-item">
+                                <span>Subtotal:</span>
+                                <span id="subtotal">$0</span>
+                            </div>
+                            <div class="cost-item">
+                                <span>Envío:</span>
+                                <span id="envio">$50</span>
+                            </div>
+                            <div class="cost-item total">
+                                <span>Total:</span>
+                                <span id="total">$0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="summary-section">
+                        <h3>Información de Entrega</h3>
+                        <div class="delivery-info">
+                            <p><strong>Costo de envío:</strong> $50 (Gratis en compras mayores a $500)</p>
+                            <p><strong>Método:</strong> Paquetería local</p>
+                        </div>
+                    </div>
+
+                    <div class="security-badges">
+                        <div class="security-item">
+                            <span class="security-icon">🔒</span>
+                            <span>Pago seguro</span>
+                        </div>
+                        <div class="security-item">
+                            <span class="security-icon">📦</span>
+                            <span>Envío garantizado</span>
+                        </div>
+                        <div class="security-item">
+                            <span class="security-icon">💬</span>
+                            <span>Soporte 24/7</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de confirmación -->
+    <div id="confirmModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>¡Pedido Confirmado!</h2>
+                <span class="close" onclick="closeModal()">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="success-icon">✅</div>
+                <p>Tu pedido ha sido procesado exitosamente.</p>
+                <p>Recibirás un email de confirmación en breve.</p>
+                <div class="order-details" id="orderDetails">
+                    <!-- Detalles del pedido se mostrarán aquí -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-primary" onclick="closeModal()">Continuar Comprando</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/carrito.js"></script>
+    <script src="js/pago.js"></script>
+    
+    <!-- Botpress Chatbot -->
+    <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/21/19/20250421193440-PR19SX7F.js" defer></script>
+    
+    <!-- Script para mostrar información de métodos de pago -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const metodoPagoSelect = document.getElementById('metodoPago');
+            const transferenciaInfo = document.getElementById('transferenciaInfo');
+            const whatsappInfo = document.getElementById('whatsappInfo');
+            const generarMensajeBtn = document.getElementById('generarMensajeWhatsApp');
+            
+            metodoPagoSelect.addEventListener('change', function() {
+                const metodoSeleccionado = this.value;
+                
+                // Ocultar todas las secciones
+                transferenciaInfo.style.display = 'none';
+                whatsappInfo.style.display = 'none';
+                
+                // Mostrar la sección correspondiente
+                if (metodoSeleccionado === 'Transferencia') {
+                    transferenciaInfo.style.display = 'block';
+                } else if (metodoSeleccionado === 'WhatsApp') {
+                    whatsappInfo.style.display = 'block';
+                }
+            });
+            
+            // Función para generar mensaje de WhatsApp
+            generarMensajeBtn.addEventListener('click', function() {
+                // Obtener datos del formulario
+                const nombre = document.getElementById('nombre').value || 'No especificado';
+                const apellido = document.getElementById('apellido').value || 'No especificado';
+                const email = document.getElementById('email').value || 'No especificado';
+                const telefono = document.getElementById('telefono').value || 'No especificado';
+                const direccion = document.getElementById('direccion').value || 'No especificado';
+                const ciudad = document.getElementById('ciudad').value || 'No especificado';
+                const codigoPostal = document.getElementById('codigoPostal').value || 'No especificado';
+                const comentarios = document.getElementById('comentarios').value || 'Sin comentarios';
+                
+                // Obtener productos del carrito (esto se obtendrá del localStorage)
+                let productosTexto = 'No hay productos en el carrito';
+                try {
+                    const carritoGuardado = localStorage.getItem('venturazone_cart');
+                    if (carritoGuardado) {
+                        const carrito = JSON.parse(carritoGuardado);
+                        if (carrito.items && carrito.items.length > 0) {
+                            productosTexto = carrito.items.map(item => 
+                                `• ${item.name} - Cantidad: ${item.quantity} - Precio: $${item.price}`
+                            ).join('\n');
+                        }
+                    }
+                } catch (error) {
+                    console.error('Error al obtener productos del carrito:', error);
+                }
+                
+                // Generar mensaje
+                const mensaje = `🛒 *PEDIDO VENTURE ZONE*
+
+👤 *Datos del Cliente:*
+• Nombre: ${nombre} ${apellido}
+• Email: ${email}
+• Teléfono: ${telefono}
+
+🏠 *Dirección de Envío:*
+• Dirección: ${direccion}
+• Ciudad: ${ciudad}
+• Código Postal: ${codigoPostal}
+
+📦 *Productos:*
+${productosTexto}
+
+💬 *Comentarios:*
+${comentarios}
+
+📱 *Método de Pago:* WhatsApp
+
+¡Hola! Quiero realizar este pedido por favor.`;
+                
+                // Crear URL de WhatsApp
+                const urlWhatsApp = `https://wa.me/5213111213128?text=${encodeURIComponent(mensaje)}`;
+                
+                // Abrir WhatsApp
+                window.open(urlWhatsApp, '_blank');
+            });
+        });
+    </script>
+</body>
+</html>

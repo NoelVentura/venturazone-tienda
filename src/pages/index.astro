@@ -1,11 +1,537 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<BaseLayout>
+  <!-- Hero Section -->
+  <section class="relative section-with-bg overflow-hidden">
+    <div class="absolute inset-0 bg-grid-pattern opacity-5"></div>
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 section-padding">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Título en el lado izquierdo -->
+        <div class="space-y-8">
+          <div class="space-y-6">
+            <h1 class="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-bold text-gray-900 dark:text-white leading-tight">
+              <span style="font-family: 'BabyDoll', 'Caveat', cursive; color: #c6490f; font-weight: 700; font-size: 1.1em; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); transform: rotate(-2deg); display: inline-block;">Bienvenidos</span> <span style="font-family: 'BabyDoll', 'Caveat', cursive; color: #c6490f; font-weight: 700; font-size: 1.1em; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); transform: rotate(-2deg); display: inline-block;">a</span> <span style="font-family: 'BabyDoll', 'Caveat', cursive; color: #0284c7; font-weight: 700; font-size: 1.1em; text-shadow: 2px 2px 4px rgba(0,0,0,0.15); transform: rotate(-2deg); display: inline-block;">Ventura Zone</span>
+            </h1>
+            <p class="text-xl leading-relaxed" style="color: #c6490f; text-shadow: 0 0 10px rgba(198, 73, 15, 0.6), 0 0 20px rgba(198, 73, 15, 0.4), 0 0 30px rgba(198, 73, 15, 0.2);">
+              Descubre nuestra amplia selección de productos de salud y bienestar personal y familiar. 
+              Cuidamos de ti y los tuyos con productos de la más alta calidad.
+            </p>
+          </div>
+          
+          <!-- Botones -->
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/productos.html" target="_blank" rel="noopener noreferrer" class="btn-primary text-center">
+              <span>Explorar Producto</span>
+              <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+              </svg>
+            </a>
+            <a href="#categorias" class="btn-secondary text-center">
+              Ver Categorías
+            </a>
+          </div>
+          
+          <!-- Estadísticas -->
+          <div class="grid grid-cols-3 gap-6 pt-8">
+            <div class="text-center">
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">113</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Productos</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">10+</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Categorías</div>
+            </div>
+            <div class="text-center">
+              <div class="text-2xl font-bold text-primary-600 dark:text-primary-400">100%</div>
+              <div class="text-sm text-gray-600 dark:text-gray-400">Calidad</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Contenido del lado derecho -->
+        <div class="relative">
+          <div class="relative z-10">
+            <!-- Ventana de Video -->
+            <div class="bg-gray-900 dark:bg-gray-900 rounded-2xl shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-500 mb-8 relative overflow-hidden" style="background-image: url('/images/LOGO.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; padding: 20px 24px 24px 24px; box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);">
+              <!-- Overlay oscuro para el fondo -->
+              <div class="absolute inset-0 bg-gray-900/80 dark:bg-gray-900/80 rounded-2xl"></div>
+              <div class="relative z-10 flex flex-col h-full">
+                <div class="text-center mb-4" style="margin-top: -20px; padding-top: 5px;">
+                  <h3 class="text-lg font-semibold text-white mb-0" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">
+                    Conoce nuestro Gel Corps Reductor de Tallas
+                  </h3>
+                  <p class="text-sm text-white" style="text-shadow: 1px 1px 2px rgba(0,0,0,0.8);">
+                    Mejora la firmeza de la piel de los glúteos, proporcionando un efecto lifting
+                  </p>
+                </div>
+                
+                <!-- Contenedor del Video -->
+                <div class="relative z-10 bg-gray-100 dark:bg-gray-700 rounded-xl overflow-hidden aspect-video mb-4">
+                  <!-- Video de GEL CORPS -->
+                  <video id="video-gel" class="w-full h-full object-cover" autoplay muted loop playsinline>
+                    <source src="/videos/GEL%20CORPS.mp4" type="video/mp4">
+                    Tu navegador no soporta el elemento de video.
+                  </video>
+                </div>
+                
+                <!-- Botón en la parte inferior -->
+                <div class="mt-auto text-center" style="margin-top: 40px;">
+                  <button class="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg">
+                    ¡Descubre Ahora!
+                  </button>
+                </div>
+              </div>
+              
+              
+              </div>
+            </div>
+            
+            <!-- Tarjeta con video Xexpert a pantalla completa -->
+            <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden transform -rotate-1 hover:rotate-0 transition-transform duration-500 mt-8 border-2 border-gray-200 dark:border-gray-700" style="box-shadow: 0 0 20px rgba(59, 130, 246, 0.6), 0 0 40px rgba(59, 130, 246, 0.4), 0 0 60px rgba(59, 130, 246, 0.2);">
+              <!-- Video Xexpert que cubre toda el área -->
+              <video id="video-xexpert" class="w-full h-full min-h-[300px] object-cover" autoplay muted loop playsinline>
+                <source src="/videos/xexpert.mp4" type="video/mp4">
+                Tu navegador no soporta el elemento de video.
+              </video>
+            </div>
+          </div>
+          
+          <!-- Elementos decorativos -->
+          <div class="absolute -top-4 -right-4 w-24 h-24 bg-primary-200 dark:bg-primary-800 rounded-full opacity-50"></div>
+          <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-secondary-200 dark:bg-secondary-800 rounded-full opacity-50"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Características Section -->
+  <section id="caracteristicas" class="section-padding section-with-bg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-3xl sm:text-4xl font-bold mb-4" style="color: #c6490f;">
+          ¿Por qué elegir VenturaZone?
+        </h2>
+        <p class="text-xl max-w-3xl mx-auto text-gray-900 dark:text-white" style="text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 255, 255, 0.6), 0 0 30px rgba(255, 255, 255, 0.4);">
+          Nos dedicamos a ofrecerte los mejores productos de salud y bienestar, 
+          respaldados por años de experiencia y compromiso con tu salud.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Característica 1 -->
+        <div class="card group hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Productos Certificados
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Todos nuestros productos cuentan con certificaciones de calidad y seguridad, 
+            garantizando que recibas solo lo mejor para tu salud y la de tu familia.
+          </p>
+        </div>
+
+        <!-- Característica 2 -->
+        <div class="card group hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Entrega Rápida y Segura
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Recibe tus productos en la comodidad de tu hogar con nuestro servicio de entrega 
+            rápida y segura, disponible en Tepic, Nayarit y todo México.
+          </p>
+        </div>
+
+        <!-- Característica 3 -->
+        <div class="card group hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Asesoría Personalizada
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Nuestro equipo de expertos te brinda asesoría personalizada para ayudarte 
+            a encontrar los productos que mejor se adapten a tus necesidades.
+          </p>
+        </div>
+
+        <!-- Característica 4 -->
+        <div class="card group hover:scale-105 transition-transform duration-300">
+          <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+            Garantía de Satisfacción
+          </h3>
+          <p class="text-gray-600 dark:text-gray-400">
+            Tu satisfacción es nuestra prioridad. Ofrecemos garantía en todos nuestros 
+            productos y un servicio al cliente excepcional.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-gradient-to-r from-primary-600 to-secondary-600 section-padding">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mb-6">
+        ¿Listo para comenzar tu camino hacia el bienestar?
+      </h2>
+      <p class="text-xl text-primary-100 mb-8">
+        Descubre nuestra amplia selección de productos de salud y bienestar 
+        diseñados para mejorar tu calidad de vida.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/productos.html" target="_blank" rel="noopener noreferrer" class="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+          Explorar Producto
+        </a>
+        <a href="#contacto" class="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105">
+          Contactar Ahora
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Productos Destacados en Movimiento -->
+  <section class="section-padding bg-white dark:bg-gray-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header de la sección -->
+      <div class="flex items-center justify-between mb-8">
+        <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white">
+          Productos Destacados
+        </h2>
+        <div class="flex items-center gap-4">
+          <a href="/productos.html" class="text-primary-600 dark:text-primary-400 hover:text-primary-700 dark:hover:text-primary-300 font-semibold transition-colors">
+            Ver todo
+          </a>
+          <!-- Controles de navegación -->
+          <div class="flex gap-2">
+            <button id="prev-btn" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button id="next-btn" class="w-10 h-10 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 flex items-center justify-center transition-colors">
+              <svg class="w-5 h-5 text-gray-600 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contenedor de productos con scroll horizontal -->
+      <div class="relative">
+        <div id="products-container" class="flex gap-6 overflow-x-auto scrollbar-hide pb-4">
+          <!-- Producto 1 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/CUIDADOFACIAL.jpg" alt="Gel Facial Hidratante" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                -25%
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Gel Facial Hidratante</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Cuidado facial premium</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$899</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 2 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/PERFUME.jpg" alt="Perfume Exclusivo" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                NUEVO
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Perfume Exclusivo</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Fragancia única y duradera</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$1,299</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 3 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/CUIDADOPERSONAL.jpg" alt="Crema Corporal" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                POPULAR
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Crema Corporal</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Hidratación profunda</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$699</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 4 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/MAQUILLAJE.jpg" alt="Kit de Maquillaje" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-purple-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                -30%
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Kit de Maquillaje</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Colección completa</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$1,599</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 5 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/CUIDADOSCAPILAR.jpg" alt="Shampoo Profesional" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">
+                #1 VENTAS
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Shampoo Profesional</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Fortalece y nutre</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$799</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Producto 6 -->
+          <div class="product-card flex-shrink-0 w-80 bg-white dark:bg-gray-800 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+            <div class="relative">
+              <img src="/images/HIBER.jpg" alt="Suplemento Natural" class="w-full h-64 object-cover rounded-t-xl">
+              <div class="absolute top-3 left-3 bg-green-600 text-white px-2 py-1 rounded-full text-xs font-bold">
+                100% NATURAL
+              </div>
+            </div>
+            <div class="p-4">
+              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">Suplemento Natural</h3>
+              <p class="text-sm text-gray-600 dark:text-gray-400 mb-3">Energía y vitalidad</p>
+              <div class="flex items-center justify-between">
+                <span class="text-2xl font-bold text-gray-900 dark:text-white">$1,199</span>
+                <button class="bg-primary-600 hover:bg-primary-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors">
+                  Comprar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Indicadores de scroll -->
+        <div class="flex justify-center mt-6 gap-2">
+          <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator active"></div>
+          <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator"></div>
+          <div class="w-2 h-2 bg-gray-300 rounded-full scroll-indicator"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .bg-grid-pattern {
+    background-image: 
+      linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+</style>
+
+<script>
+  // Declaración de tipo para la función global
+  declare global {
+    interface Window {
+      openBotpressChat?: () => boolean;
+    }
+  }
+
+  // Agregar funcionalidad al botón de chat
+  document.addEventListener('DOMContentLoaded', function() {
+    const chatButton = document.getElementById('chat-button');
+    
+    if (chatButton) {
+      // Agregar efectos visuales
+      chatButton.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+        this.style.cursor = 'pointer';
+      });
+      
+      chatButton.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+      });
+      
+      // Agregar funcionalidad de clic
+      chatButton.addEventListener('click', function() {
+        console.log('Botón de Atención Personalizada clickeado');
+        
+        // Usar la función global
+        if (typeof window.openBotpressChat === 'function') {
+          const success = window.openBotpressChat?.();
+          if (!success) {
+            // Si no funciona, esperar y volver a intentar
+            setTimeout(function() {
+              const retrySuccess = window.openBotpressChat?.();
+              if (!retrySuccess) {
+                alert('Chat disponible en breve. Por favor, espera unos segundos y vuelve a intentar.');
+              }
+            }, 2000);
+          }
+        } else {
+          alert('Chat disponible en breve. Por favor, espera unos segundos y vuelve a intentar.');
+        }
+      });
+    }
+  });
+  
+  // Script básico para videos
+  document.addEventListener('DOMContentLoaded', function() {
+    console.log('🎬 Videos configurados con autoplay');
+    
+    // Función para reproducir videos automáticamente
+    function playVideos() {
+      const videos = document.querySelectorAll('video');
+      
+      videos.forEach((video, index) => {
+        console.log(`🎬 Intentando reproducir video ${index + 1}`);
+        
+        // Configurar propiedades
+        video.muted = true;
+        video.loop = true;
+        video.playsInline = true;
+        
+        // Intentar reproducir
+        video.play().then(() => {
+          console.log(`✅ Video ${index + 1} reproduciéndose automáticamente`);
+        }).catch((error) => {
+          console.log(`⚠️ Video ${index + 1} no puede reproducirse automáticamente: ${error.message}`);
+        });
+      });
+    }
+    
+    // Intentar reproducir inmediatamente
+    playVideos();
+    
+    // Intentar reproducir después de un delay
+    setTimeout(playVideos, 1000);
+    
+    // Intentar reproducir en cualquier interacción del usuario
+    const enableOnInteraction = () => {
+      playVideos();
+      document.removeEventListener('click', enableOnInteraction);
+      document.removeEventListener('touchstart', enableOnInteraction);
+    };
+    
+    document.addEventListener('click', enableOnInteraction);
+    document.addEventListener('touchstart', enableOnInteraction);
+  });
+
+  // Script para la navegación de productos
+  document.addEventListener('DOMContentLoaded', function() {
+    const productsContainer = document.getElementById('products-container') as HTMLElement;
+    const prevBtn = document.getElementById('prev-btn') as HTMLButtonElement;
+    const nextBtn = document.getElementById('next-btn') as HTMLButtonElement;
+    const indicators = document.querySelectorAll('.scroll-indicator') as NodeListOf<HTMLElement>;
+    
+    if (!productsContainer || !prevBtn || !nextBtn) return;
+    
+    const cardWidth = 320; // Ancho de cada tarjeta + gap
+    let currentIndex = 0;
+    const maxIndex = Math.max(0, Math.floor((productsContainer.scrollWidth - productsContainer.clientWidth) / cardWidth));
+    
+    // Función para actualizar indicadores
+    function updateIndicators(): void {
+      indicators.forEach((indicator: HTMLElement, index: number) => {
+        indicator.classList.toggle('active', index === currentIndex);
+      });
+    }
+    
+    // Función para hacer scroll
+    function scrollToIndex(index: number): void {
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      const scrollPosition = currentIndex * cardWidth;
+      productsContainer.scrollTo({
+        left: scrollPosition,
+        behavior: 'smooth'
+      });
+      updateIndicators();
+    }
+    
+    // Event listeners para botones
+    prevBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex - 1);
+    });
+    
+    nextBtn.addEventListener('click', () => {
+      scrollToIndex(currentIndex + 1);
+    });
+    
+          // Event listener para scroll manual
+      productsContainer.addEventListener('scroll', () => {
+        if (productsContainer) {
+          const scrollPosition = productsContainer.scrollLeft;
+          currentIndex = Math.round(scrollPosition / cardWidth);
+          updateIndicators();
+        }
+      });
+    
+    // Event listeners para indicadores
+    indicators.forEach((indicator: HTMLElement, index: number) => {
+      indicator.addEventListener('click', () => {
+        scrollToIndex(index);
+      });
+    });
+    
+    // Auto-scroll cada 5 segundos
+    let autoScrollInterval = setInterval(() => {
+      if (currentIndex >= maxIndex) {
+        scrollToIndex(0);
+      } else {
+        scrollToIndex(currentIndex + 1);
+      }
+    }, 5000);
+    
+    // Pausar auto-scroll al hacer hover
+    productsContainer.addEventListener('mouseenter', () => {
+      clearInterval(autoScrollInterval);
+    });
+    
+    productsContainer.addEventListener('mouseleave', () => {
+      autoScrollInterval = setInterval(() => {
+        if (currentIndex >= maxIndex) {
+          scrollToIndex(0);
+        } else {
+          scrollToIndex(currentIndex + 1);
+        }
+      }, 5000);
+    });
+    
+    // Inicializar indicadores
+    updateIndicators();
+  });
+
+  
+
+</script>
