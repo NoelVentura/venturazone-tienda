@@ -8,12 +8,12 @@ Venture Zone es una tienda online especializada en perfumes, cuidado corporal, m
 La aplicación web sigue el siguiente flujo de navegación:
 
 ```
-1. catalogo.html (Página Principal)
-   ├── pago.html (Proceso de pago)
-   ├── areaperfumes.html (Catálogo de Perfumes)
-   ├── Cuidadocorporal.html (Productos de Cuidado Corporal)
-   ├── maquillaje.html (Productos de Maquillaje)
-   └── suplementos.html (Suplementos)
+📄 public/documents/catalogo.html (Página Principal)
+   ├── public/documents/areaperfumes.html (Catálogo de Perfumes)
+   ├── public/documents/Cuidadocorporal.html (Productos de Cuidado Corporal)
+   ├── public/documents/maquillaje.html (Productos de Maquillaje)
+   ├── public/documents/suplementos.html (Suplementos)
+   └── public/pago.html (Proceso de pago y checkout)
 ```
 
 ## 🗂️ Estructura de Archivos
@@ -88,25 +88,27 @@ INICIAR-AHORA.bat
 
 ## 🌐 Páginas Principales
 
-### 1. Catálogo (catalogo.html)
-Página principal que muestra todas las categorías de productos:
-- Perfumes
-- Cuidado Corporal
-- Maquillaje
-- Suplementos
+### 1. Catálogo (`public/documents/catalogo.html`)
+**Página principal** que muestra todas las categorías de productos:
+- 🌸 Perfumes
+- 🧴 Cuidado Corporal
+- 💄 Maquillaje
+- 💊 Suplementos
 
-### 2. Pago (pago.html)
+Desde aquí el usuario puede navegar a cada sección específica o ir directamente al proceso de pago.
+
+### 2. Áreas de Productos (Ubicadas en `public/documents/`)
+- **areaperfumes.html**: Catálogo completo de perfumes para hombre y mujer
+- **Cuidadocorporal.html**: Productos de cuidado personal y corporal
+- **maquillaje.html**: Productos de maquillaje y belleza
+- **suplementos.html**: Suplementos nutricionales y deportivos
+
+### 3. Pago (`public/pago.html`)
 Página de checkout donde el usuario:
-- Completa sus datos personales
-- Ingresa dirección de envío
-- Selecciona método de pago
-- Confirma su pedido
-
-### 3. Áreas de Productos
-- **areaperfumes.html**: Catálogo de perfumes
-- **Cuidadocorporal.html**: Productos de cuidado personal
-- **maquillaje.html**: Productos de maquillaje
-- **suplementos.html**: Suplementos nutricionales
+- ✍️ Completa sus datos personales
+- 📍 Ingresa dirección de envío
+- 💳 Selecciona método de pago (WhatsApp, Transferencia o Efectivo)
+- ✅ Confirma su pedido
 
 ## 💳 Métodos de Pago
 
