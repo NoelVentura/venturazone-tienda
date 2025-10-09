@@ -31,15 +31,29 @@ function initializeCheckout() {
 // Cargar datos del carrito desde localStorage
 function loadCartFromStorage() {
     try {
-        const savedCart = localStorage.getItem('venturazone_cart');
+        console.log('🔍 Buscando carrito en localStorage...');
+        
+        // Intentar cargar desde ambos formatos
+        let savedCart = localStorage.getItem('venturazone_cart');
+        console.log('📦 venturazone_cart:', savedCart);
+        
+        if (!savedCart) {
+            savedCart = localStorage.getItem('ventureZoneCart');
+            console.log('📦 ventureZoneCart:', savedCart);
+        }
+        
         if (savedCart) {
             const cartData = JSON.parse(savedCart);
             cartItems = cartData.items || [];
             cartTotal = cartData.count || 0;
-            console.log('Carrito cargado:', cartItems);
+            console.log('✅ Carrito cargado correctamente:', cartItems);
+            console.log('📊 Cantidad de productos:', cartItems.length);
+        } else {
+            console.log('⚠️ No se encontró carrito en localStorage');
+            cartItems = [];
         }
     } catch (error) {
-        console.error('Error al cargar el carrito:', error);
+        console.error('❌ Error al cargar el carrito:', error);
         cartItems = [];
     }
 }
