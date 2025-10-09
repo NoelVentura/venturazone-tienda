@@ -866,6 +866,7 @@
                 timestamp: Date.now()
             };
             localStorage.setItem('ventureZoneCart', JSON.stringify(cartData));
+            localStorage.setItem('venturazone_cart', JSON.stringify(cartData)); // Para compatibilidad con pago.html
             console.log('💾 Carrito guardado en localStorage:', cartData);
         }
         
@@ -1245,6 +1246,10 @@
                 alert('Tu carrito está vacío');
                 return;
             }
+            
+            // Guardar carrito en localStorage antes de redirigir
+            saveCartToStorage();
+            console.log('🛒 Carrito guardado antes de ir a pago:', cartItems);
             
             // Redirigir a la página de pago
             window.location.href = '../pago.html';
