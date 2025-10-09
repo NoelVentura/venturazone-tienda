@@ -710,7 +710,7 @@
                         <div class="quantity-display" id="quantity1">1</div>
                         <button class="quantity-btn" onclick="increaseQuantity('product1')">+</button>
                     </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Base Liquida Hyaluronic', 415, 'product1')">Comprar</button>
+                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Base Liquida Hyaluronic', 415, 'product1')">Agregar al Carrito</button>
                 </div>
 
                 <!-- Producto 2 -->
@@ -726,7 +726,7 @@
                         <div class="quantity-display" id="quantity2">1</div>
                         <button class="quantity-btn" onclick="increaseQuantity('product2')">+</button>
                     </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Soft Focus', 210, 'product2')">Comprar</button>
+                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Soft Focus', 210, 'product2')">Agregar al Carrito</button>
                 </div>
 
                 <!-- Producto 3 -->
@@ -742,7 +742,7 @@
                         <div class="quantity-display" id="quantity3">1</div>
                         <button class="quantity-btn" onclick="increaseQuantity('product3')">+</button>
                     </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Labial Liquida', 220, 'product3')">Comprar</button>
+                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Labial Liquida', 220, 'product3')">Agregar al Carrito</button>
                 </div>
 
                 <!-- Producto 4 -->
@@ -758,7 +758,7 @@
                         <div class="quantity-display" id="quantity4">1</div>
                         <button class="quantity-btn" onclick="increaseQuantity('product4')">+</button>
                     </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Labial Matte Velvet', 248, 'product4')">Comprar</button>
+                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Labial Matte Velvet', 248, 'product4')">Agregar al Carrito</button>
                 </div>
 
                 <!-- Producto 5 -->
@@ -774,7 +774,7 @@
                         <div class="quantity-display" id="quantity5">1</div>
                         <button class="quantity-btn" onclick="increaseQuantity('product5')">+</button>
                     </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Lápiz Retráctil', 123, 'product5')">Comprar</button>
+                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Lápiz Retráctil', 123, 'product5')">Agregar al Carrito</button>
                 </div>
 
 
@@ -1166,9 +1166,9 @@
                         </div>
                         ${shippingCost === 0 ? '<p style="color: #4CAF50; font-size: 12px; margin: 5px 0 0 0;">🎉 ¡Envío gratis por compras mayores a $500!</p>' : '<p style="color: #666; font-size: 12px; margin: 5px 0 0 0;">💡 Agrega $' + (500 - total) + ' más para envío gratis</p>'}
                     </div>
-                    <div style="display: flex; gap: 10px; justify-content: center;">
+                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         <button onclick="clearCart(); closeCartModal();" style="background: #ff4444; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Vaciar Carrito</button>
-                        <button onclick="proceedToCheckout()" style="background: #ff6b35; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Proceder al Pago</button>
+                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo para Pagar</button>
                         <button onclick="closeCartModal()" style="background: #666; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Cerrar</button>
                     </div>
                 </div>
