@@ -1078,9 +1078,14 @@
             // Guardar carrito en localStorage antes de redirigir
             saveCartToStorage();
             console.log('🛒 Carrito guardado antes de ir a pago:', cartItems);
+            console.log('📦 localStorage ventureZoneCart:', localStorage.getItem('ventureZoneCart'));
+            console.log('📦 localStorage venturazone_cart:', localStorage.getItem('venturazone_cart'));
             
-            // Redirigir a la página de pago
-            window.location.href = '../pago.html';
+            // Esperar un momento para asegurar que se guarde
+            setTimeout(() => {
+                // Redirigir a la página de pago
+                window.location.href = '../pago.html';
+            }, 100);
         }
 
         // Hacer las funciones del carrito disponibles globalmente
