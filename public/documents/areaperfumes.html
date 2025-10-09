@@ -1025,7 +1025,8 @@
                     </div>
                     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         <button onclick="clearCart(); closeCartModal();" style="background: #ff4444; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Vaciar Carrito</button>
-                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo para Pagar</button>
+                        <button onclick="proceedToCheckout();" style="background: #ff6b35; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Proceder al Pago</button>
+                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo</button>
                         <button onclick="closeCartModal()" style="background: #666; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Cerrar</button>
                     </div>
                 </div>
@@ -1070,6 +1071,17 @@
             cartCount = 0;
             updateCartDisplay();
             saveCartToStorage(); // Guardar en localStorage
+        }
+
+        // Función para proceder al checkout
+        function proceedToCheckout() {
+            if (cartItems.length === 0) {
+                alert('Tu carrito está vacío');
+                return;
+            }
+            
+            // Redirigir a la página de pago
+            window.location.href = '../pago.html';
         }
 
         function showCartNotification(productName, quantity) {
