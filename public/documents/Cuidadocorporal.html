@@ -987,6 +987,9 @@
             
             console.log('📄 Página cargada, inicializando carrusel...');
             
+            // Eliminar botones de pago inmediatamente
+            removePaymentButton();
+            
             // Actualizar visibilidad de flechas al cargar
             updateArrowVisibility();
             
@@ -1044,6 +1047,7 @@
                 if (button.textContent.includes('Proceder al Pago') || 
                     button.textContent.includes('proceedToCheckout') ||
                     button.onclick && button.onclick.toString().includes('proceedToCheckout')) {
+                    console.log('🚫 Eliminando botón de pago:', button.textContent);
                     button.remove();
                 }
             });
@@ -1051,12 +1055,22 @@
             // Buscar botones por onclick
             const paymentButtons = document.querySelectorAll('button[onclick*="proceedToCheckout"]');
             paymentButtons.forEach(button => {
+                console.log('🚫 Eliminando botón de pago por onclick:', button.textContent);
                 button.remove();
+            });
+            
+            // Buscar botones naranjas que puedan ser de pago
+            const orangeButtons = document.querySelectorAll('button[style*="orange"], button[style*="#ff6b35"], button[style*="#ff6b35"]');
+            orangeButtons.forEach(button => {
+                if (button.textContent.includes('Pago') || button.textContent.includes('Payment')) {
+                    console.log('🚫 Eliminando botón naranja de pago:', button.textContent);
+                    button.remove();
+                }
             });
         }
         
-        // Ejecutar la función periódicamente para asegurar que no aparezca el botón
-        setInterval(removePaymentButton, 500);
+        // Ejecutar la función más frecuentemente
+        setInterval(removePaymentButton, 200);
 
         // Función para alternar el carrusel (pausar/reanudar)
         function toggleCarousel() {
