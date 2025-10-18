@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Área de Cuidado Corporal - Venture Zone</title>
+    <!-- Versión actualizada: Sin botón de pago directo -->
     <style>
         * {
             margin: 0;
@@ -826,6 +827,9 @@
         // Variables globales para el carrito
         let cartItems = [];
         let cartCount = 0;
+        
+        // Versión actualizada - Sin botón de pago directo
+        console.log('🔄 Página de Cuidado Corporal - Versión actualizada sin pago directo - ' + new Date().getTime());
 
         // Cargar carrito desde localStorage al iniciar
         function loadCartFromStorage() {
@@ -1027,7 +1031,32 @@
         };
 
         // Hacer las funciones del carrito disponibles globalmente
-        window.proceedToCheckout = proceedToCheckout;
+        window.goToCatalog = goToCatalog;
+        
+        // Eliminar completamente la función proceedToCheckout
+        window.proceedToCheckout = undefined;
+        
+        // Función para eliminar cualquier botón de pago que pueda aparecer dinámicamente
+        function removePaymentButton() {
+            // Buscar botones por texto
+            const allButtons = document.querySelectorAll('button');
+            allButtons.forEach(button => {
+                if (button.textContent.includes('Proceder al Pago') || 
+                    button.textContent.includes('proceedToCheckout') ||
+                    button.onclick && button.onclick.toString().includes('proceedToCheckout')) {
+                    button.remove();
+                }
+            });
+            
+            // Buscar botones por onclick
+            const paymentButtons = document.querySelectorAll('button[onclick*="proceedToCheckout"]');
+            paymentButtons.forEach(button => {
+                button.remove();
+            });
+        }
+        
+        // Ejecutar la función periódicamente para asegurar que no aparezca el botón
+        setInterval(removePaymentButton, 500);
 
         // Función para alternar el carrusel (pausar/reanudar)
         function toggleCarousel() {
@@ -1142,7 +1171,7 @@
             `;
             
             let total = 0;
-            let cartHTML = '<h2 style="text-align: center; margin-bottom: 20px; color: #333;">🛒 Carrito de Compras</h2>';
+            let cartHTML = '<h2 style="text-align: center; margin-bottom: 20px; color: #333;">🛒 Carrito de Compras</h2><p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">💡 Ve al catálogo principal para completar tu compra</p><p style="text-align: center; color: #999; font-size: 10px; margin-bottom: 10px;">Versión sin pago directo: ' + new Date().getTime() + '</p>';
             
             cartItems.forEach((item, index) => {
                 const itemTotal = item.price * item.quantity;
@@ -1192,7 +1221,7 @@
                     </div>
                     <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
                         <button onclick="clearCart(); closeCartModal();" style="background: #ff4444; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Vaciar Carrito</button>
-                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo</button>
+                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo para Comprar</button>
                         <button onclick="closeCartModal()" style="background: #666; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Cerrar</button>
                     </div>
                 </div>
@@ -1201,6 +1230,20 @@
             cartContent.innerHTML = cartHTML;
             modal.appendChild(cartContent);
             document.body.appendChild(modal);
+            
+            // Asegurar que no haya botones de pago
+            setTimeout(() => {
+                removePaymentButton();
+            }, 100);
+            
+            // Ejecutar múltiples veces para asegurar que se elimine
+            setTimeout(() => {
+                removePaymentButton();
+            }, 500);
+            
+            setTimeout(() => {
+                removePaymentButton();
+            }, 1000);
             
             // Cerrar modal al hacer clic fuera
             modal.addEventListener('click', (e) => {
@@ -1239,8 +1282,8 @@
             saveCartToStorage(); // Guardar en localStorage
         }
 
-        // Función para proceder al checkout
-        function proceedToCheckout() {
+        // Función para ir al catálogo (eliminada la función de checkout)
+        function goToCatalog() {
             if (cartItems.length === 0) {
                 alert('Tu carrito está vacío');
                 return;
@@ -1248,15 +1291,10 @@
             
             // Guardar carrito en localStorage antes de redirigir
             saveCartToStorage();
-            console.log('🛒 Carrito guardado antes de ir a pago:', cartItems);
-            console.log('📦 localStorage ventureZoneCart:', localStorage.getItem('ventureZoneCart'));
-            console.log('📦 localStorage venturazone_cart:', localStorage.getItem('venturazone_cart'));
+            console.log('🛒 Carrito guardado antes de ir al catálogo:', cartItems);
             
-            // Esperar un momento para asegurar que se guarde
-            setTimeout(() => {
-                // Redirigir a la página de pago
-                window.location.href = '../pago.html';
-            }, 100);
+            // Redirigir al catálogo principal
+            window.location.href = 'catalogo.html';
         }
 
         function showCartNotification(productName, quantity) {

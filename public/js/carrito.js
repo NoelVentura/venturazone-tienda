@@ -214,10 +214,6 @@ class CarritoCompras {
             </div>
             
             <div class="space-y-3">
-              <button onclick="procederPago()" 
-                      class="w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg font-semibold transition-colors">
-                <i class="fas fa-credit-card mr-2"></i>Proceder al Pago
-              </button>
               <button onclick="cerrarCarrito()" 
                       class="w-full bg-gray-200 hover:bg-gray-300 text-gray-700 py-3 rounded-lg font-semibold transition-colors">
                 Continuar Comprando
@@ -251,17 +247,7 @@ function cerrarCarrito() {
   }
 }
 
-function procederPago() {
-  if (carrito.items.length === 0) {
-    alert('Tu carrito está vacío');
-    return;
-  }
-  
-  // Aquí puedes implementar la lógica de pago
-  // Por ahora, mostraremos un mensaje
-  alert('Redirigiendo al proceso de pago...');
-  cerrarCarrito();
-}
+// Función procederPago eliminada - Ya no se permite pago directo desde el carrito
 
 // Función para agregar producto al carrito
 function agregarAlCarrito(productoId) {
@@ -275,7 +261,7 @@ function agregarAlCarrito(productoId) {
 window.carrito = carrito;
 window.abrirCarrito = abrirCarrito;
 window.cerrarCarrito = cerrarCarrito;
-window.procederPago = procederPago;
+// window.procederPago = procederPago; // ELIMINADO
 window.agregarAlCarrito = agregarAlCarrito;
 
 

@@ -163,6 +163,7 @@
                         <div id="productosResumen" class="productos-lista">
                             <!-- Los productos se cargarán dinámicamente -->
                         </div>
+                        <button onclick="loadCartSummary()" style="background: #4CAF50; color: white; border: none; padding: 8px 16px; border-radius: 4px; margin-top: 10px; cursor: pointer; font-size: 12px;">🔄 Recargar Carrito</button>
                     </div>
 
                     <div class="summary-section">
@@ -239,9 +240,189 @@
     <script src="https://cdn.botpress.cloud/webchat/v3.3/inject.js"></script>
     <script src="https://files.bpcontent.cloud/2025/04/21/19/20250421193440-PR19SX7F.js" defer></script>
     
+    <!-- Script para sincronizar carrito inmediatamente -->
+    <script>
+        // Ejecutar inmediatamente al cargar la página
+        (function() {
+            console.log('🚀 Iniciando sincronización inmediata del carrito...');
+            
+            // Buscar y sincronizar carrito inmediatamente
+            const possibleKeys = [
+                'ventureZoneCart',
+                'venturazone_cart', 
+                'cart',
+                'carrito',
+                'catalogo_cart',
+                'tienda_cart'
+            ];
+            
+            let cartFound = false;
+            
+            for (let key of possibleKeys) {
+                const data = localStorage.getItem(key);
+                if (data) {
+                    try {
+                        const parsed = JSON.parse(data);
+                        if (parsed.items && parsed.items.length > 0) {
+                            console.log(`✅ Carrito encontrado en ${key}:`, parsed);
+                            
+                            // Sincronizar a las claves estándar
+                            localStorage.setItem('ventureZoneCart', JSON.stringify(parsed));
+                            localStorage.setItem('venturazone_cart', JSON.stringify(parsed));
+                            
+                            cartFound = true;
+                            break;
+                        }
+                    } catch (e) {
+                        console.log(`⚠️ Error parseando ${key}:`, e);
+                    }
+                }
+            }
+            
+            if (!cartFound) {
+                console.log('⚠️ No se encontró carrito válido para sincronizar');
+            }
+        })();
+    </script>
+    
     <!-- Script para mostrar información de métodos de pago -->
     <script>
+        // Función para sincronizar carrito desde el catálogo
+        function syncCartFromCatalog() {
+            console.log('🔄 Sincronizando carrito desde el catálogo...');
+            
+            // Intentar obtener el carrito del catálogo
+            try {
+                // Buscar en todas las posibles ubicaciones
+                const possibleKeys = [
+                    'ventureZoneCart',
+                    'venturazone_cart', 
+                    'cart',
+                    'carrito',
+                    'catalogo_cart',
+                    'tienda_cart'
+                ];
+                
+                let cartData = null;
+                let foundKey = null;
+                
+                for (let key of possibleKeys) {
+                    const data = localStorage.getItem(key);
+                    if (data) {
+                        console.log(`📦 Encontrado carrito en clave: ${key}`);
+                        console.log(`📋 Datos: ${data}`);
+                        try {
+                            const parsed = JSON.parse(data);
+                            if (parsed.items && parsed.items.length > 0) {
+                                cartData = parsed;
+                                foundKey = key;
+                                break;
+                            }
+                        } catch (e) {
+                            console.log(`⚠️ Error parseando ${key}:`, e);
+                        }
+                    }
+                }
+                
+                if (cartData && cartData.items && cartData.items.length > 0) {
+                    console.log('✅ Carrito sincronizado exitosamente:', cartData);
+                    
+                    // Guardar en la clave estándar para la página de pago
+                    localStorage.setItem('venturazone_cart', JSON.stringify(cartData));
+                    localStorage.setItem('ventureZoneCart', JSON.stringify(cartData));
+                    
+                    return cartData;
+                } else {
+                    console.log('⚠️ No se encontró carrito válido');
+                    return null;
+                }
+            } catch (error) {
+                console.error('❌ Error sincronizando carrito:', error);
+                return null;
+            }
+        }
+        
+        // Función para cargar el resumen del carrito
+        function loadCartSummary() {
+            console.log('🔄 Iniciando carga del carrito...');
+            
+            // Primero intentar sincronizar desde el catálogo
+            const syncedCart = syncCartFromCatalog();
+            
+            try {
+                // Buscar en todas las posibles claves
+                let carritoGuardado = localStorage.getItem('ventureZoneCart') || 
+                                   localStorage.getItem('venturazone_cart') || 
+                                   localStorage.getItem('cart') ||
+                                   localStorage.getItem('carrito');
+                
+                console.log('🔍 Claves encontradas en localStorage:');
+                console.log('- ventureZoneCart:', localStorage.getItem('ventureZoneCart'));
+                console.log('- venturazone_cart:', localStorage.getItem('venturazone_cart'));
+                console.log('- cart:', localStorage.getItem('cart'));
+                console.log('- carrito:', localStorage.getItem('carrito'));
+                
+                if (carritoGuardado) {
+                    console.log('📦 Datos del carrito encontrados:', carritoGuardado);
+                    const carrito = JSON.parse(carritoGuardado);
+                    console.log('📋 Carrito parseado:', carrito);
+                    
+                    if (carrito.items && carrito.items.length > 0) {
+                        console.log('✅ Productos encontrados:', carrito.items.length);
+                        
+                        // Mostrar productos
+                        const productosResumen = document.getElementById('productosResumen');
+                        const subtotalElement = document.getElementById('subtotal');
+                        const totalElement = document.getElementById('total');
+                        
+                        let productosHTML = '';
+                        let subtotal = 0;
+                        
+                        carrito.items.forEach((item, index) => {
+                            const itemTotal = item.price * item.quantity;
+                            subtotal += itemTotal;
+                            console.log(`📦 Producto ${index + 1}: ${item.name} x${item.quantity} = $${itemTotal}`);
+                            
+                            productosHTML += `
+                                <div class="producto-item" style="display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #eee;">
+                                    <div>
+                                        <span class="producto-nombre" style="font-weight: bold;">${item.name}</span>
+                                        <span class="producto-cantidad" style="color: #666; margin-left: 10px;">x${item.quantity}</span>
+                                    </div>
+                                    <span class="producto-precio" style="font-weight: bold; color: #2e7d32;">$${itemTotal}</span>
+                                </div>
+                            `;
+                        });
+                        
+                        productosResumen.innerHTML = productosHTML;
+                        subtotalElement.textContent = `$${subtotal}`;
+                        
+                        // Calcular envío (gratis si es más de $500)
+                        const envio = subtotal >= 500 ? 0 : 50;
+                        const total = subtotal + envio;
+                        
+                        document.getElementById('envio').textContent = envio === 0 ? 'GRATIS' : `$${envio}`;
+                        totalElement.textContent = `$${total}`;
+                        
+                        console.log('✅ Carrito cargado correctamente - Subtotal: $' + subtotal + ', Total: $' + total);
+                    } else {
+                        console.log('⚠️ Carrito vacío - no hay items');
+                        document.getElementById('productosResumen').innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No hay productos en el carrito</p>';
+                    }
+                } else {
+                    console.log('⚠️ No se encontró carrito en localStorage');
+                    document.getElementById('productosResumen').innerHTML = '<p style="color: #666; text-align: center; padding: 20px;">No hay productos en el carrito</p>';
+                }
+            } catch (error) {
+                console.error('❌ Error al cargar el carrito:', error);
+                document.getElementById('productosResumen').innerHTML = '<p style="color: #d32f2f; text-align: center; padding: 20px;">Error al cargar el carrito</p>';
+            }
+        }
+        
         document.addEventListener('DOMContentLoaded', function() {
+            // Cargar carrito al inicio
+            loadCartSummary();
+            
             const metodoPagoSelect = document.getElementById('metodoPago');
             const transferenciaInfo = document.getElementById('transferenciaInfo');
             const whatsappInfo = document.getElementById('whatsappInfo');
@@ -277,7 +458,8 @@
                 // Obtener productos del carrito (esto se obtendrá del localStorage)
                 let productosTexto = 'No hay productos en el carrito';
                 try {
-                    const carritoGuardado = localStorage.getItem('venturazone_cart');
+                    // Buscar en ambas claves para compatibilidad
+                    let carritoGuardado = localStorage.getItem('ventureZoneCart') || localStorage.getItem('venturazone_cart');
                     if (carritoGuardado) {
                         const carrito = JSON.parse(carritoGuardado);
                         if (carrito.items && carrito.items.length > 0) {

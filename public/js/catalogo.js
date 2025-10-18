@@ -412,7 +412,7 @@ function openCart() {
             </div>
             <div style="display: flex; gap: 10px;">
                 <button onclick="clearCart()" style="flex: 1; background: #dc3545; color: white; border: none; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold;">Limpiar Carrito</button>
-                <button onclick="proceedToCheckout()" style="flex: 1; background: linear-gradient(135deg, #00b894, #00a085); color: white; border: none; padding: 12px; border-radius: 10px; cursor: pointer; font-weight: bold;">Proceder al Pago</button>
+                <button disabled style="flex: 1; background: #f5f5f5; color: #999; border: 1px solid #ddd; padding: 12px; border-radius: 10px; cursor: not-allowed; font-weight: bold; opacity: 0.6;">Proceder al Pago</button>
             </div>
         </div>
     `;
