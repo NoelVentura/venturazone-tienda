@@ -981,6 +981,9 @@
             
             console.log('📄 Página cargada, inicializando carrusel...');
             
+            // Eliminar botones de pago inmediatamente
+            removePaymentButton();
+            
             // Actualizar visibilidad de flechas al cargar
             updateArrowVisibility();
             
@@ -1029,6 +1032,39 @@
         
         // Eliminar completamente la función proceedToCheckout
         window.proceedToCheckout = undefined;
+        
+        // Función para eliminar cualquier botón de pago que pueda aparecer dinámicamente
+        function removePaymentButton() {
+            // Buscar botones por texto
+            const allButtons = document.querySelectorAll('button');
+            allButtons.forEach(button => {
+                if (button.textContent.includes('Proceder al Pago') || 
+                    button.textContent.includes('proceedToCheckout') ||
+                    button.onclick && button.onclick.toString().includes('proceedToCheckout')) {
+                    console.log('🚫 Eliminando botón de pago:', button.textContent);
+                    button.remove();
+                }
+            });
+            
+            // Buscar botones por onclick
+            const paymentButtons = document.querySelectorAll('button[onclick*="proceedToCheckout"]');
+            paymentButtons.forEach(button => {
+                console.log('🚫 Eliminando botón de pago por onclick:', button.textContent);
+                button.remove();
+            });
+            
+            // Buscar botones naranjas que puedan ser de pago
+            const orangeButtons = document.querySelectorAll('button[style*="orange"], button[style*="#ff6b35"], button[style*="#ff6b35"]');
+            orangeButtons.forEach(button => {
+                if (button.textContent.includes('Pago') || button.textContent.includes('Payment')) {
+                    console.log('🚫 Eliminando botón naranja de pago:', button.textContent);
+                    button.remove();
+                }
+            });
+        }
+        
+        // Ejecutar la función más frecuentemente
+        setInterval(removePaymentButton, 200);
 
         // Funciones del selector de cantidad
         function increaseQuantity(productId) {
@@ -1185,6 +1221,19 @@
             cartContent.innerHTML = cartHTML;
             modal.appendChild(cartContent);
             document.body.appendChild(modal);
+            
+            // Eliminar botones de pago después de crear el modal
+            setTimeout(() => {
+                removePaymentButton();
+            }, 100);
+            
+            setTimeout(() => {
+                removePaymentButton();
+            }, 500);
+            
+            setTimeout(() => {
+                removePaymentButton();
+            }, 1000);
             
             // Cerrar modal al hacer clic fuera
             modal.addEventListener('click', (e) => {
