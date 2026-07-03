@@ -3,1421 +3,969 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <meta name="description" content="Venture Zone — Área de Cuidado Corporal Hinode. Gel Corps, Hands de Manos, Hydra Power, Lifting Bumbum y Strax. Envío gratis en compras mayores a $500.">
+    <meta name="keywords" content="Venture Zone, cuidado corporal, Hinode, Gel Corps, Hydra Power, bienestar, Tepic, México">
+    <meta name="author" content="Venture Zone">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://venturezone.com/documents/Cuidadocorporal.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Venture Zone">
+    <meta property="og:title" content="Área de Cuidado Corporal - Venture Zone">
+    <meta property="og:description" content="Productos Hinode para el cuidado corporal: modelado, hidratación, manos y bienestar integral.">
+    <meta property="og:image" content="../images/gelcorps.jpg">
+    <meta property="og:url" content="https://venturezone.com/documents/Cuidadocorporal.html">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Área de Cuidado Corporal - Venture Zone">
+    <meta name="twitter:description" content="Descubre nuestra línea de cuidado corporal Hinode. Gel Corps, Hydra Power y más.">
+    <meta name="twitter:image" content="../images/gelcorps.jpg">
     <title>Área de Cuidado Corporal - Venture Zone</title>
-    <!-- Versión actualizada: Sin botón de pago directo -->
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background: url('../images/gelcorps.jpg') center center/cover no-repeat fixed;
-            color: #333;
-            min-height: 100vh;
-            padding: 40px 20px;
-            position: relative;
-        }
-
-
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 30px;
-        }
-
-        .header-left {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .back-button {
-            display: inline-block;
-            background: #ff6b35;
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-
-        .back-button:hover {
-            background: #e55a2b;
-            transform: translateX(-5px);
-        }
-
-        .title {
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-            margin: 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-        }
-
-
-
-        .carousel-container {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .carousel-controls {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            z-index: 20;
-        }
-
-        .carousel-toggle-btn {
-            background: rgba(255, 107, 53, 0.9);
-            color: white;
-            border: 2px solid #e55a2b;
-            border-radius: 25px;
-            padding: 8px 16px;
-            font-size: 14px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .carousel-toggle-btn:hover {
-            background: rgba(229, 90, 43, 0.95);
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-        }
-
-        .carousel-toggle-btn.paused {
-            background: rgba(76, 175, 80, 0.9);
-            border-color: #4caf50;
-        }
-
-        .carousel-toggle-btn.paused:hover {
-            background: rgba(76, 175, 80, 1);
-        }
-
-        .carousel-arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 107, 53, 0.9);
-            border: 2px solid #e55a2b;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            color: white;
-            transition: all 0.3s ease;
-            z-index: 10;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        }
-
-        .carousel-arrow:hover {
-            background: rgba(229, 90, 43, 0.95);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-        }
-
-        .carousel-arrow.left {
-            left: 10px;
-        }
-
-        .carousel-arrow.right {
-            right: 10px;
-        }
-
-        .carousel-arrow.hidden {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .cuidado-corporal-carousel {
-            display: flex;
-            gap: 20px;
-            overflow-x: auto;
-            padding: 20px 0;
-            scroll-behavior: smooth;
-            scrollbar-width: none;
-            -ms-overflow-style: none;
-        }
-
-        .cuidado-corporal-carousel::-webkit-scrollbar {
-            display: none;
-        }
-
-        .cuidado-corporal-card {
-            min-width: 245px;
-            min-height: 350px;
-            background: white;
-            border-radius: 15px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 
-                0 8px 32px rgba(0,0,0,0.15),
-                0 0 0 1px rgba(255,255,255,0.1),
-                0 0 40px rgba(255,107,53,0.1),
-                0 0 80px rgba(255,107,53,0.05),
-                0 0 0 3px rgba(255,107,53,0.3),
-                0 0 20px rgba(255,107,53,0.4),
-                0 0 40px rgba(255,107,53,0.2),
-                0 0 60px rgba(255,107,53,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            border: 2px solid rgba(255,107,53,0.5);
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            backdrop-filter: blur(10px);
-            animation: cardGlow 3s ease-in-out infinite alternate;
-        }
-
-        .cuidado-corporal-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 
-                0 15px 45px rgba(0,0,0,0.2),
-                0 0 0 1px rgba(255,255,255,0.3),
-                0 0 0 4px rgba(255,107,53,0.8),
-                0 0 30px rgba(255,107,53,0.6),
-                0 0 60px rgba(255,107,53,0.4),
-                0 0 100px rgba(255,107,53,0.2),
-                0 0 150px rgba(255,107,53,0.1);
-            animation: cardGlowHover 1s ease-in-out infinite alternate;
-        }
-
-        .cuidado-corporal-image {
-            width: 140px;
-            height: 105px;
-            background: #f8f9fa;
-            border-radius: 10px;
-            margin: 0 auto 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 42px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cuidado-corporal-name {
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: #333;
-        }
-
-        .cuidado-corporal-description {
-            font-size: 13px;
-            color: #666;
-            margin-bottom: 18px;
-            line-height: 1.5;
-        }
-
-        .cuidado-corporal-price {
-            font-size: 25px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 18px;
-        }
-
-        .buy-button {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            font-size: 13px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            width: 100%;
-        }
-
-        .buy-button:hover {
-            background: #555;
-            transform: scale(1.02);
-        }
-
-        /* Quantity Selector Styles */
-        .quantity-selector {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 15px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 25px;
-            padding: 8px 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-
-        .quantity-btn {
-            background: rgba(255,255,255,0.9);
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 18px;
-            font-weight: bold;
-            color: #333;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .quantity-btn:hover {
-            background: #fff;
-            transform: scale(1.1);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-        }
-
-        .quantity-btn:active {
-            transform: scale(0.95);
-        }
-
-        .quantity-display {
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            border-radius: 15px;
-            padding: 5px 12px;
-            font-weight: bold;
-            font-size: 16px;
-            min-width: 30px;
-            text-align: center;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        /* Cart Modal Styles */
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideOut {
-            from {
-                transform: translateX(0);
-                opacity: 1;
-            }
-            to {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-        }
-
-        .cart-modal {
-            animation: slideIn 0.3s ease-out;
-        }
-
-        .cart-item {
-            transition: all 0.3s ease;
-        }
-
-        .cart-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        /* Cart Button Styles */
-        .cart-button {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: linear-gradient(90deg, #ff6b35, #ffffff);
-            border: none;
-            border-radius: 25px;
-            padding: 12px 20px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-family: 'Arial', sans-serif;
-        }
-
-        .cart-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
-        }
-
-        .cart-icon {
-            width: 24px;
-            height: 24px;
-            position: relative;
-        }
-
-        .cart-icon::before {
-            content: '🛒';
-            font-size: 20px;
-            color: #333;
-        }
-
-        .cart-count {
-            background: #ff4444;
-            color: white;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 14px;
-            font-weight: bold;
-            border: 2px solid white;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-        }
-
-        .cart-button:hover .cart-count {
-            background: #ff2222;
-            transform: scale(1.1);
-        }
-
-        @media (max-width: 768px) {
-            .cart-button {
-                top: 15px;
-                right: 15px;
-                padding: 10px 16px;
-                gap: 8px;
-            }
-            
-            .cart-icon::before {
-                font-size: 18px;
-            }
-            
-            .cart-count {
-                width: 20px;
-                height: 20px;
-                font-size: 12px;
-            }
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: #ff6b6b;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        .badge-counter {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: #666;
-            color: white;
-            padding: 4px 8px;
-            border-radius: 12px;
-            font-size: 11px;
-            font-weight: bold;
-        }
-
-        /* Animaciones de iluminación exterior */
-        @keyframes cardGlow {
-            0% {
-                box-shadow: 
-                    0 8px 32px rgba(0,0,0,0.15),
-                    0 0 0 1px rgba(255,255,255,0.1),
-                    0 0 40px rgba(255,107,53,0.1),
-                    0 0 80px rgba(255,107,53,0.05),
-                    0 0 0 3px rgba(255,107,53,0.3),
-                    0 0 20px rgba(255,107,53,0.4),
-                    0 0 40px rgba(255,107,53,0.2),
-                    0 0 60px rgba(255,107,53,0.1);
-            }
-            100% {
-                box-shadow: 
-                    0 8px 32px rgba(0,0,0,0.15),
-                    0 0 0 1px rgba(255,255,255,0.1),
-                    0 0 40px rgba(255,107,53,0.1),
-                    0 0 80px rgba(255,107,53,0.05),
-                    0 0 0 3px rgba(255,107,53,0.6),
-                    0 0 25px rgba(255,107,53,0.6),
-                    0 0 50px rgba(255,107,53,0.3),
-                    0 0 80px rgba(255,107,53,0.2);
-            }
-        }
-
-        @keyframes cardGlowHover {
-            0% {
-                box-shadow: 
-                    0 15px 45px rgba(0,0,0,0.2),
-                    0 0 0 1px rgba(255,255,255,0.3),
-                    0 0 0 4px rgba(255,107,53,0.8),
-                    0 0 30px rgba(255,107,53,0.6),
-                    0 0 60px rgba(255,107,53,0.4),
-                    0 0 100px rgba(255,107,53,0.2),
-                    0 0 150px rgba(255,107,53,0.1);
-            }
-            100% {
-                box-shadow: 
-                    0 15px 45px rgba(0,0,0,0.2),
-                    0 0 0 1px rgba(255,255,255,0.3),
-                    0 0 0 4px rgba(255,107,53,1),
-                    0 0 40px rgba(255,107,53,0.8),
-                    0 0 80px rgba(255,107,53,0.5),
-                    0 0 120px rgba(255,107,53,0.3),
-                    0 0 180px rgba(255,107,53,0.2);
-            }
-        }
-
-        @media print {
-            body {
-                background: white;
-            }
-            
-            .carousel-controls {
-                display: none;
-            }
-            
-            .cuidado-corporal-carousel {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 30px;
-            }
-            
-            .cuidado-corporal-card {
-                min-width: 300px;
-                max-width: 350px;
-            }
-        }
-
-        /* Footer Styles */
-        .footer {
-            background: linear-gradient(135deg, rgba(0,0,0,0.15), rgba(255,107,53,0.015));
-            color: white;
-            padding: 30px 20px 20px;
-            margin-top: 40px;
-            text-align: center;
-            border-top: 2px solid rgba(255,107,53,0.3);
-            backdrop-filter: blur(10px);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-top {
-            margin-bottom: 15px;
-        }
-
-        .footer-logo {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 10px;
-        }
-
-        .company-name {
-            font-size: 24px;
-            font-weight: bold;
-            margin: 0;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-        }
-
-        .footer-slogan {
-            margin-bottom: 20px;
-        }
-
-        .footer-slogan p {
-            font-size: 16px;
-            line-height: 1.4;
-            margin: 0;
-            color: #f0f0f0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        .footer-social {
-            margin: 20px 0;
-            text-align: center;
-        }
-
-        .footer-social h4 {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: white;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-            border-bottom: 2px solid rgba(255,107,53,0.5);
-            padding-bottom: 5px;
-            display: inline-block;
-        }
-
-        .social-icons {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .social-icon {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255,107,53,0.3);
-            box-shadow: 0 0 10px rgba(255,107,53,0.2);
-        }
-
-        .social-icon:hover {
-            transform: scale(1.1);
-            border-color: rgba(255,107,53,0.8);
-            box-shadow: 0 0 20px rgba(255,107,53,0.4);
-        }
-
-        .social-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icon:hover img {
-            transform: scale(1.05);
-        }
-
-        .footer-copyright {
-            padding-top: 15px;
-            border-top: 1px solid rgba(255,107,53,0.3);
-        }
-
-        .footer-copyright p {
-            font-size: 14px;
-            margin: 0;
-            color: #ccc;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
-        }
-
-        @media (max-width: 768px) {
-            .footer-logo {
-                flex-direction: column;
-                gap: 10px;
-            }
-            
-            .company-name {
-                font-size: 28px;
-            }
-        }
-
-        /* Estilos para la barra de navegación de categorías */
-        .categories-nav {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            align-items: center;
-            padding: 15px 20px;
-            gap: 20px;
-        }
-
-        .nav-link {
-            color: white;
-            text-decoration: none;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .nav-link:hover {
-            background: rgba(255, 255, 255, 0.2);
-            border-color: rgba(255, 255, 255, 0.3);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-link.active {
-            background: rgba(255, 107, 53, 0.8);
-            border-color: #ff6b35;
-            color: white;
-        }
-
-        .nav-link.active:hover {
-            background: rgba(255, 107, 53, 1);
-            transform: translateY(-2px);
-        }
-    </style>
+    <script>
+        (function () {
+            const stored = localStorage.getItem('theme');
+            const theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            document.documentElement.setAttribute('data-theme', theme);
+            const themeColor = document.querySelector('meta[name="theme-color"]');
+            if (themeColor) themeColor.setAttribute('content', theme === 'dark' ? '#0f172a' : '#ffffff');
+        })();
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles-shared.css">
+    <link rel="stylesheet" href="styles-cuidadocorporal.css">
+    <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+    <script src="https://files.bpcontent.cloud/2025/04/21/19/20250421193440-PR19SX7F.js" defer></script>
 </head>
 <body>
-    <!-- Cart Button -->
-    <button class="cart-button" onclick="openCart()">
-        <div class="cart-icon"></div>
-        <div class="cart-count" id="cartCount">0</div>
-    </button>
-
-    <div class="container">
-        <div class="header">
-            <div class="header-left">
-                <a href="catalogo.html" class="back-button">← Regresar a inicio</a>
-                <h1 class="title">Cuidado Corporal</h1>
-            </div>
-        </div>
-
-        <div class="carousel-container">
-            <div class="carousel-arrow left" onclick="scrollCarousel('left')">←</div>
-            <div class="carousel-arrow right" onclick="scrollCarousel('right')">→</div>
-            <div class="cuidado-corporal-carousel" id="cuidadoCorporalCarousel">
-                <!-- Producto 1 -->
-                <div class="cuidado-corporal-card" style="background-image: url('../images/CUIDADOPERSONAL.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="badge-counter">1/5</div>
-                    <div style="position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 class="cuidado-corporal-name" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Gel Corps</h3>
-                        <p class="cuidado-corporal-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Gel Modelador Reduce medidas y grasa localizada</p>
-                        <div class="cuidado-corporal-price" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">$430</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="decreaseQuantity('product1')">-</button>
-                        <div class="quantity-display" id="quantity1">1</div>
-                        <button class="quantity-btn" onclick="increaseQuantity('product1')">+</button>
-                    </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Gel Corps', 430, 'product1')">Agregar al Carrito</button>
-                </div>
-
-                <!-- Producto 2 -->
-                <div class="cuidado-corporal-card" style="background-image: url('../images/hands.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="badge-counter">2/5</div>
-                    <div style="position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 class="cuidado-corporal-name" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Hands de Manos</h3>
-                        <p class="cuidado-corporal-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Crema Guante de Silicona para las manos</p>
-                        <div class="cuidado-corporal-price" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">$166</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="decreaseQuantity('product2')">-</button>
-                        <div class="quantity-display" id="quantity2">1</div>
-                        <button class="quantity-btn" onclick="increaseQuantity('product2')">+</button>
-                    </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Hands de Manos', 166, 'product2')">Agregar al Carrito</button>
-                </div>
-
-                <!-- Producto 3 -->
-                <div class="cuidado-corporal-card" style="background-image: url('../images/hydrapower.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="badge-counter">3/5</div>
-                    <div style="position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 class="cuidado-corporal-name" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Hydra Power</h3>
-                        <p class="cuidado-corporal-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Hidrata y ayuda en la prevención del resecamiento de los pies</p>
-                        <div class="cuidado-corporal-price" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">$144</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="decreaseQuantity('product3')">-</button>
-                        <div class="quantity-display" id="quantity3">1</div>
-                        <button class="quantity-btn" onclick="increaseQuantity('product3')">+</button>
-                    </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Hydra Power', 144, 'product3')">Agregar al Carrito</button>
-                </div>
-
-                <!-- Producto 4 -->
-                <div class="cuidado-corporal-card" style="background-image: url('../images/bumbum.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="badge-counter">4/5</div>
-                    <div style="position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 class="cuidado-corporal-name" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Lifting Bumbum</h3>
-                        <p class="cuidado-corporal-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Gel Firmador para Gluteos</p>
-                        <div class="cuidado-corporal-price" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">$480</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="decreaseQuantity('product4')">-</button>
-                        <div class="quantity-display" id="quantity4">1</div>
-                        <button class="quantity-btn" onclick="increaseQuantity('product4')">+</button>
-                    </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Lifting Bumbum', 480, 'product4')">Agregar al Carrito</button>
-                </div>
-
-                <!-- Producto 5 -->
-                <div class="cuidado-corporal-card" style="background-image: url('../images/strax.jpg'); background-size: cover; background-position: center; background-repeat: no-repeat; position: relative;">
-                    <div class="badge-counter">5/5</div>
-                    <div style="position: relative; z-index: 2; flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
-                        <h3 class="cuidado-corporal-name" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Strax</h3>
-                        <p class="cuidado-corporal-description" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">Productos para el bienestar corporal</p>
-                        <div class="cuidado-corporal-price" style="color: white; text-shadow: 2px 2px 4px rgba(0,0,0,0.8);">$257</div>
-                    </div>
-                    <div class="quantity-selector">
-                        <button class="quantity-btn" onclick="decreaseQuantity('product5')">-</button>
-                        <div class="quantity-display" id="quantity5">1</div>
-                        <button class="quantity-btn" onclick="increaseQuantity('product5')">+</button>
-                    </div>
-                    <button class="buy-button" style="background: rgba(255,255,255,0.9); color: #333; font-weight: bold;" onclick="addToCart('Strax', 257, 'product5')">Agregar al Carrito</button>
-                </div>
-            </div>
+    <div class="page-loader" id="pageLoader" role="status" aria-live="polite" aria-busy="true" aria-label="Cargando sitio">
+        <div class="page-loader-inner">
+            <span class="page-loader-logo">Venture Zone</span>
+            <div class="page-loader-bar" aria-hidden="true"><span></span></div>
+            <p class="sec-label">Cargando…</p>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-logo">
-                    <h3 class="company-name">Ventura Zone</h3>
+    <a href="#inicio" class="skip-link">Saltar al contenido principal</a>
+
+    <nav class="site-nav">
+        <div class="nav-inner">
+            <a href="catalogo-adaptado.html" class="brand">
+                Venture Zone
+                <span class="brand-tag">Tu bienestar, nuestra pasión</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="catalogo-adaptado.html" class="nav-a">Catálogo</a></li>
+                <li><a href="Cuidadocorporal.html" class="nav-a is-active" aria-current="page">Cuidado Corporal</a></li>
+                <li><a href="maquillaje.html" class="nav-a">Maquillaje</a></li>
+                <li><a href="areaperfumes.html" class="nav-a">Perfumes</a></li>
+                <li><a href="suplementos.html" class="nav-a">Suplementos</a></li>
+                <li><a href="catalogo-adaptado.html#tienda" class="nav-a">Tienda</a></li>
+                <li><a href="catalogo-adaptado.html#reservas" class="nav-a">Reservas</a></li>
+                <li><a href="#contacto" class="nav-a">Contacto</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="nav-search-btn" id="searchBtn"><span class="search-label">Buscar</span></button>
+                <button id="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar tema">
+                    <span class="theme-toggle-glass">
+                        <span class="theme-toggle-track" aria-hidden="true">
+                            <span class="theme-stars"><span></span><span></span><span></span><span></span><span></span></span>
+                            <span class="theme-toggle-knob">
+                                <svg class="toggle-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g class="sun-rays"><line x1="12" y1="2" x2="12" y2="5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="22" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="2" y1="12" x2="5" y2="12" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="19" y1="12" x2="22" y2="12" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="4.2" y1="4.2" x2="6.4" y2="6.4" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="17.6" y1="17.6" x2="19.8" y2="19.8" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="4.2" y1="19.8" x2="6.4" y2="17.6" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/><line x1="17.6" y1="6.4" x2="19.8" y2="4.2" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/></g><circle cx="12" cy="12" r="4.5" fill="#FBBF24" stroke="#F59E0B" stroke-width="0.5"/></svg>
+                                <svg class="toggle-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18 14.5C16.5 16.8 13.6 18 11 17.2C8.1 16.2 6.5 13.2 7.1 10.2C7.5 8.2 8.8 6.6 10.5 5.7C9.8 7.8 10.2 10.3 11.8 12C13.4 13.7 15.8 14.4 18 14.5Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="0.5"/></svg>
+                            </span>
+                        </span>
+                        <span class="theme-ripple" aria-hidden="true"></span>
+                    </span>
+                </button>
+                <button class="cart-btn" onclick="openCart()">🛒<span class="cart-count">0</span></button>
+                <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+                </button>
+            </div>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="catalogo-adaptado.html" class="nav-a">Catálogo</a>
+            <a href="Cuidadocorporal.html" class="nav-a is-active" aria-current="page">Cuidado Corporal</a>
+            <a href="maquillaje.html" class="nav-a">Maquillaje</a>
+            <a href="areaperfumes.html" class="nav-a">Perfumes</a>
+            <a href="suplementos.html" class="nav-a">Suplementos</a>
+            <a href="catalogo-adaptado.html#tienda" class="nav-a">Tienda</a>
+            <a href="catalogo-adaptado.html#reservas" class="nav-a">Reservas</a>
+            <a href="#contacto" class="nav-a">Contacto</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <section class="hero hero--corporal" id="inicio">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <p class="hero-label fu">Venture Zone · Hinode México</p>
+                        <h1 class="hero-title fu">Cuidado <em>Corporal</em></h1>
+                        <p class="hero-subtitle fu">Descubre la línea Hinode de bienestar corporal: modelado, hidratación y cuidado integral para tu cuerpo. Productos de calidad respaldados por Venture Zone.</p>
+                        <div class="hero-ctas fu">
+                            <a href="#productos" class="btn-p">Ver Productos</a>
+                            <a href="#tratamientos" class="btn-s">Explorar Tratamientos</a>
+                        </div>
+                    </div>
+                    <div class="hero-media fu fade-right">
+                        <video id="corporalHeroVideo" autoplay muted loop playsinline preload="auto" webkit-playsinline="true" aria-label="Video Gel Corps Lignea — cuidado corporal Hinode">
+                            <source src="../videos/123.mp4" type="video/mp4">
+                        </video>
+                        <div id="videoOverlay" class="video-overlay">
+                            <button type="button" id="playButton" class="play-button">▶ Reproducir con sonido</button>
+                            <p class="video-overlay-hint sec-label">El audio se activa al reproducir</p>
+                        </div>
+                        <button type="button" id="videoSoundToggle" class="video-sound-btn" aria-label="Activar sonido del video" title="Activar sonido" hidden>🔇</button>
+                    </div>
                 </div>
             </div>
-            <div class="footer-slogan">
-                <p>Tu destino confiable para productos de salud y bienestar Hinode México</p>
+        </section>
+
+        <div class="mq-wrap" aria-hidden="true">
+            <div class="mq-inner">
+                <span class="mq-item">Bienestar<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Salud<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Relajación<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Equilibrio<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Hidratación<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Modelado<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Calidad Hinode<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Bienestar<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Salud<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Relajación<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Equilibrio<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Hidratación<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Modelado<span class="mq-dot">◆</span></span>
+                <span class="mq-item">Calidad Hinode<span class="mq-dot">◆</span></span>
             </div>
-            <div class="footer-social">
-                <h4>Síguenos en las Redes Sociales</h4>
-                <div class="social-icons">
-                    <a href="https://www.facebook.com/profile.php?id=100083406701528" class="social-icon" target="_blank">
-                        <img src="../images/facebook.png" alt="Facebook" />
-                    </a>
-                    <a href="#" class="social-icon">
-                        <img src="../images/instagram.jpg" alt="Instagram" />
-                    </a>
-                    <a href="https://wa.me/523111213128" class="social-icon" target="_blank">
-                        <img src="../images/Whatapps.jpg" alt="WhatsApp" />
-                    </a>
+        </div>
+
+        <section class="section" id="enfoque">
+            <div class="container">
+                <p class="sec-label fu" style="margin-bottom:16px;">Nuestro Enfoque</p>
+                <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:20px;">Filosofía Hinode de <em>cuidado corporal</em></h2>
+                <p class="ui-text fu" style="max-width:680px;margin-bottom:48px;">En Venture Zone creemos que el cuidado corporal va más allá de la estética: es salud, bienestar y confianza. La línea Hinode combina ingredientes de calidad con formulaciones pensadas para resultados reales.</p>
+                <div class="grid-2">
+                    <div class="fu">
+                        <div class="quote-hero-wrap" style="margin:0;">
+                            <p class="quote-t" style="font-size:clamp(1rem,1.8vw,1.25rem);line-height:1.7;position:relative;z-index:1;">El cuerpo es el hogar de tu bienestar. Cuidarlo con productos Hinode es invertir en ti mismo con la confianza de una marca reconocida internacionalmente.</p>
+                        </div>
+                    </div>
+                    <div class="fu">
+                        <h3 class="h-mix" style="font-size:1.1rem;margin-bottom:16px;">Compromiso con la <em>calidad</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Cada producto de cuidado corporal que ofrecemos — desde geles modeladores hasta cremas hidratantes — cumple estándares rigurosos de formulación y eficacia.</p>
+                        <p class="ui-text" style="margin-bottom:24px;">Nuestro equipo te asesora para elegir el tratamiento ideal según tus objetivos: modelado, hidratación, cuidado de manos o bienestar integral.</p>
+                        <a href="#productos" class="btn-s">Conocer productos</a>
+                    </div>
                 </div>
             </div>
-            <div class="footer-copyright">
-                <p>© 2024 Ventura Zone. Todos los derechos reservados. | Tepic, Nayarit, México</p>
+        </section>
+
+        <section class="section section-alt" id="tratamientos">
+            <div class="container">
+                <div style="text-align:center;margin-bottom:64px;">
+                    <p class="sec-label fu" style="margin-bottom:16px;">Tratamientos</p>
+                    <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);">Soluciones para cada <em>necesidad</em></h2>
+                    <p class="ui-text fu" style="max-width:560px;margin:20px auto 0;">Cinco tratamientos especializados de la línea Hinode para el cuidado integral de tu cuerpo.</p>
+                </div>
+                <div class="grid-2 services-grid">
+                    <article class="service-card fu"><span class="sec-label service-number">01</span><h3 class="h-mix service-title">Gel <em>Corps</em></h3><p class="ui-text">Gel modelador que ayuda a reducir medidas y grasa localizada. Ideal para rutinas de modelado corporal diario.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">02</span><h3 class="h-mix service-title">Hands de <em>Manos</em></h3><p class="ui-text">Crema guante de silicona que protege e hidrata profundamente las manos, ideal para uso frecuente y clima seco.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">03</span><h3 class="h-mix service-title">Hydra <em>Power</em></h3><p class="ui-text">Hidratación intensiva para pies. Previene el resecamiento y mantiene la piel suave con aplicación regular.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">04</span><h3 class="h-mix service-title">Lifting <em>Bumbum</em></h3><p class="ui-text">Gel firmador especializado para glúteos. Complementa tu rutina de cuidado corporal con resultados visibles.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">05</span><h3 class="h-mix service-title"><em>Strax</em></h3><p class="ui-text">Línea integral de bienestar corporal Hinode. Apoya tu equilibrio y cuidado diario de principio a fin.</p></article>
+                </div>
             </div>
+        </section>
+
+        <section class="section" id="beneficios">
+            <div class="container">
+                <p class="sec-label fu" style="margin-bottom:16px;">Beneficios</p>
+                <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:48px;">Resultados que <em>importan</em></h2>
+                <div class="metrics-block fu fade-scale">
+                    <p class="sec-label" style="margin-bottom:40px;text-align:center;">Métricas de nuestra línea corporal</p>
+                    <div class="grid-4" style="text-align:center;margin-bottom:32px;">
+                        <div><span class="metric-num counter" data-count="5">0</span><span class="sec-label" style="color:var(--text-on-inverse);margin-top:12px;display:block;">Productos especializados</span></div>
+                        <div><span class="metric-num counter" data-count="100" data-suffix="%">0</span><span class="sec-label" style="color:var(--text-on-inverse);margin-top:12px;display:block;">Calidad Hinode garantizada</span></div>
+                        <div><span class="metric-num counter" data-count="500" data-prefix="$" data-suffix="">0</span><span class="sec-label" style="color:var(--text-on-inverse);margin-top:12px;display:block;">Envío gratis desde</span></div>
+                        <div><span class="metric-num counter" data-count="24" data-suffix="h">0</span><span class="sec-label" style="color:var(--text-on-inverse);margin-top:12px;display:block;">Asesoría por WhatsApp</span></div>
+                    </div>
+                </div>
+                <div class="grid-3" style="margin-top:56px;">
+                    <article class="pillar-card fu"><span class="sec-label" style="display:block;margin-bottom:12px;">Hidratación</span><h3 class="h-mix" style="font-size:0.95rem;margin-bottom:12px;">Piel <em>nutrida</em></h3><p class="ui-text">Hydra Power y Hands de Manos mantienen la humedad natural de pies y manos, previniendo resequedad.</p></article>
+                    <article class="pillar-card fu"><span class="sec-label" style="display:block;margin-bottom:12px;">Modelado</span><h3 class="h-mix" style="font-size:0.95rem;margin-bottom:12px;">Contorno <em>definido</em></h3><p class="ui-text">Gel Corps y Lifting Bumbum complementan tu rutina de ejercicio con aplicación constante y masajes.</p></article>
+                    <article class="pillar-card fu"><span class="sec-label" style="display:block;margin-bottom:12px;">Bienestar</span><h3 class="h-mix" style="font-size:0.95rem;margin-bottom:12px;">Equilibrio <em>integral</em></h3><p class="ui-text">Strax integra el bienestar corporal en tu día a día con la calidad respaldada por Hinode.</p></article>
+                </div>
+                <div class="grid-3" style="margin-top:32px;">
+                    <blockquote class="pillar-card fu"><p class="quote-t" style="font-size:1rem;line-height:1.7;">"Gel Corps se volvió parte de mi rutina diaria. Noto cambios en las zonas que más me preocupaban."</p><cite class="sec-label" style="display:block;margin-top:16px;font-style:normal;">— María G., Tepic</cite></blockquote>
+                    <blockquote class="pillar-card fu"><p class="quote-t" style="font-size:1rem;line-height:1.7;">"Hands de Manos es increíble para el trabajo diario. Mis manos ya no se resecan como antes."</p><cite class="sec-label" style="display:block;margin-top:16px;font-style:normal;">— Laura R., Nayarit</cite></blockquote>
+                    <blockquote class="pillar-card fu"><p class="quote-t" style="font-size:1rem;line-height:1.7;">"Hydra Power salvó mis pies en invierno. La hidratación dura y el producto rinde mucho."</p><cite class="sec-label" style="display:block;margin-top:16px;font-style:normal;">— Carmen V., Tepic</cite></blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="proceso">
+            <div class="container">
+                <div style="text-align:center;margin-bottom:56px;">
+                    <p class="sec-label fu" style="margin-bottom:16px;">Proceso</p>
+                    <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);">Tu rutina en <em>4 pasos</em></h2>
+                </div>
+                <div class="grid-4">
+                    <article class="service-card fu"><span class="sec-label service-number">01</span><h3 class="h-mix service-title">Conoce tu <em>piel</em></h3><p class="ui-text">Identifica tus necesidades: hidratación, modelado o cuidado de zonas específicas como manos y pies.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">02</span><h3 class="h-mix service-title">Elige tu <em>tratamiento</em></h3><p class="ui-text">Selecciona entre nuestros 5 productos Hinode según tu objetivo de bienestar corporal.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">03</span><h3 class="h-mix service-title">Aplica con <em>constancia</em></h3><p class="ui-text">Sigue las indicaciones de uso diario. La regularidad es clave para obtener mejores resultados.</p></article>
+                    <article class="service-card fu"><span class="sec-label service-number">04</span><h3 class="h-mix service-title">Disfruta <em>resultados</em></h3><p class="ui-text">Combina con hábitos saludables y contáctanos por WhatsApp para reabastecer o ampliar tu rutina.</p></article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="productos">
+            <div class="container">
+                <div class="section-header">
+                    <div>
+                        <p class="sec-label fu" style="margin-bottom:16px;">Productos</p>
+                        <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);">Línea corporal <em>Hinode</em></h2>
+                    </div>
+                    <p class="ui-text fu" style="max-width:380px;">Agrega al carrito y completa tu compra desde el catálogo principal. Envío gratis en pedidos mayores a $500.</p>
+                </div>
+                <div class="grid-auto" id="productsGrid">
+                    <article class="proj-card product-card fu" data-product="Gel Corps">
+                    <div class="product-image">
+                        <span class="product-badge">Modelador</span>
+                        <img src="../images/CUIDADOPERSONAL.jpg" alt="Gel Corps — Gel Modelador Reduce medidas y grasa localizada" width="400" height="300" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-body">
+                        <span class="sec-label" style="display:block;margin-bottom:12px;">Cuidado Corporal</span>
+                        <h3 class="h-mix product-name" style="font-size:1rem;margin-bottom:12px;">Gel <em>Corps</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Gel Modelador Reduce medidas y grasa localizada</p>
+                        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px;"><span class="product-price">$430</span></div>
+                        <div style="margin-bottom:16px;"><span class="chip">Corporal</span> <span class="chip">Reductor</span></div>
+                        <div class="product-footer">
+                            <div class="quantity-selector" role="group" aria-label="Cantidad de Gel Corps">
+                                <button type="button" class="quantity-btn" onclick="decreaseQuantity('product1')" aria-label="Disminuir cantidad">−</button>
+                                <div class="quantity-display" id="quantity1" aria-live="polite">1</div>
+                                <button type="button" class="quantity-btn" onclick="increaseQuantity('product1')" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                            <button type="button" class="btn-p buy-button" onclick="addToCart('Gel Corps', 430, 'product1')">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </article>
+                    <article class="proj-card product-card fu" data-product="Hands de Manos">
+                    <div class="product-image">
+                        <span class="product-badge">Manos</span>
+                        <img src="../images/hands.jpg" alt="Hands de Manos — Crema Guante de Silicona para las manos" width="400" height="300" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-body">
+                        <span class="sec-label" style="display:block;margin-bottom:12px;">Cuidado Corporal</span>
+                        <h3 class="h-mix product-name" style="font-size:1rem;margin-bottom:12px;">Hands de <em>Manos</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Crema Guante de Silicona para las manos</p>
+                        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px;"><span class="product-price">$166</span></div>
+                        <div style="margin-bottom:16px;"><span class="chip">Hidratante</span> <span class="chip">Silicona</span></div>
+                        <div class="product-footer">
+                            <div class="quantity-selector" role="group" aria-label="Cantidad de Hands de Manos">
+                                <button type="button" class="quantity-btn" onclick="decreaseQuantity('product2')" aria-label="Disminuir cantidad">−</button>
+                                <div class="quantity-display" id="quantity2" aria-live="polite">1</div>
+                                <button type="button" class="quantity-btn" onclick="increaseQuantity('product2')" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                            <button type="button" class="btn-p buy-button" onclick="addToCart('Hands de Manos', 166, 'product2')">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </article>
+                    <article class="proj-card product-card fu" data-product="Hydra Power">
+                    <div class="product-image">
+                        <span class="product-badge">Pies</span>
+                        <img src="../images/hydrapower.jpg" alt="Hydra Power — Hidrata y ayuda en la prevención del resecamiento de los pies" width="400" height="300" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-body">
+                        <span class="sec-label" style="display:block;margin-bottom:12px;">Cuidado Corporal</span>
+                        <h3 class="h-mix product-name" style="font-size:1rem;margin-bottom:12px;">Hydra <em>Power</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Hidrata y ayuda en la prevención del resecamiento de los pies</p>
+                        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px;"><span class="product-price">$144</span></div>
+                        <div style="margin-bottom:16px;"><span class="chip">Hidratación</span> <span class="chip">Pies</span></div>
+                        <div class="product-footer">
+                            <div class="quantity-selector" role="group" aria-label="Cantidad de Hydra Power">
+                                <button type="button" class="quantity-btn" onclick="decreaseQuantity('product3')" aria-label="Disminuir cantidad">−</button>
+                                <div class="quantity-display" id="quantity3" aria-live="polite">1</div>
+                                <button type="button" class="quantity-btn" onclick="increaseQuantity('product3')" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                            <button type="button" class="btn-p buy-button" onclick="addToCart('Hydra Power', 144, 'product3')">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </article>
+                    <article class="proj-card product-card fu" data-product="Lifting Bumbum">
+                    <div class="product-image">
+                        <span class="product-badge">Firmador</span>
+                        <img src="../images/bumbum.jpg" alt="Lifting Bumbum — Gel Firmador para Gluteos" width="400" height="300" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-body">
+                        <span class="sec-label" style="display:block;margin-bottom:12px;">Cuidado Corporal</span>
+                        <h3 class="h-mix product-name" style="font-size:1rem;margin-bottom:12px;">Lifting <em>Bumbum</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Gel Firmador para Gluteos</p>
+                        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px;"><span class="product-price">$480</span></div>
+                        <div style="margin-bottom:16px;"><span class="chip">Glúteos</span> <span class="chip">Modelado</span></div>
+                        <div class="product-footer">
+                            <div class="quantity-selector" role="group" aria-label="Cantidad de Lifting Bumbum">
+                                <button type="button" class="quantity-btn" onclick="decreaseQuantity('product4')" aria-label="Disminuir cantidad">−</button>
+                                <div class="quantity-display" id="quantity4" aria-live="polite">1</div>
+                                <button type="button" class="quantity-btn" onclick="increaseQuantity('product4')" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                            <button type="button" class="btn-p buy-button" onclick="addToCart('Lifting Bumbum', 480, 'product4')">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </article>
+                    <article class="proj-card product-card fu" data-product="Strax">
+                    <div class="product-image">
+                        <span class="product-badge">Bienestar</span>
+                        <img src="../images/strax.jpg" alt="Strax — Productos para el bienestar corporal" width="400" height="300" loading="lazy" decoding="async">
+                    </div>
+                    <div class="product-body">
+                        <span class="sec-label" style="display:block;margin-bottom:12px;">Cuidado Corporal</span>
+                        <h3 class="h-mix product-name" style="font-size:1rem;margin-bottom:12px;"><em>Strax</em></h3>
+                        <p class="ui-text" style="margin-bottom:16px;">Productos para el bienestar corporal</p>
+                        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:16px;"><span class="product-price">$257</span></div>
+                        <div style="margin-bottom:16px;"><span class="chip">Corporal</span> <span class="chip">Hinode</span></div>
+                        <div class="product-footer">
+                            <div class="quantity-selector" role="group" aria-label="Cantidad de Strax">
+                                <button type="button" class="quantity-btn" onclick="decreaseQuantity('product5')" aria-label="Disminuir cantidad">−</button>
+                                <div class="quantity-display" id="quantity5" aria-live="polite">1</div>
+                                <button type="button" class="quantity-btn" onclick="increaseQuantity('product5')" aria-label="Aumentar cantidad">+</button>
+                            </div>
+                            <button type="button" class="btn-p buy-button" onclick="addToCart('Strax', 257, 'product5')">Agregar al Carrito</button>
+                        </div>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="faq">
+            <div class="container">
+                <div style="text-align:center;margin-bottom:48px;">
+                    <p class="sec-label fu" style="margin-bottom:16px;">Preguntas Frecuentes</p>
+                    <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);">Resolvemos tus <em>dudas</em></h2>
+                </div>
+                <div class="faq-list" role="list">
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a1" id="faq-q1"><span>¿Cómo se usa Gel Corps para mejores resultados?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1"><p>Aplica Gel Corps sobre la zona deseada con movimientos circulares ascendentes, preferiblemente después de la ducha. Úsalo de forma constante, idealmente mañana y noche, complementando con hidratación y actividad física.</p></div></div>
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a2" id="faq-q2"><span>¿Cuánto tarda el envío de los productos?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2"><p>Los tiempos de entrega varían según tu ubicación en México. Al confirmar tu pedido por WhatsApp te indicamos el tiempo estimado. En Tepic y zona metropolitana el envío suele ser más rápido.</p></div></div>
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a3" id="faq-q3"><span>¿A partir de qué monto el envío es gratis?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3"><p>El envío es gratuito en compras iguales o superiores a $500 MXN. En pedidos menores aplica un costo de envío de $50 MXN, visible en el resumen de tu carrito antes de finalizar.</p></div></div>
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a4" id="faq-q4"><span>¿Los productos Hinode son aptos para todo tipo de piel?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4"><p>La mayoría de nuestra línea corporal está formulada para uso general. Si tienes piel sensible o alguna condición específica, contáctanos por WhatsApp para recibir asesoría personalizada antes de comprar.</p></div></div>
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a5" id="faq-q5"><span>¿Puedo combinar varios productos en mi rutina?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5"><p>Sí. Muchos clientes combinan Gel Corps con Lifting Bumbum, o Hydra Power con Hands de Manos. Te recomendamos aplicar cada producto en su zona correspondiente y esperar a que se absorba antes del siguiente.</p></div></div>
+                    <div class="faq-item fu" role="listitem"><button class="faq-question" type="button" aria-expanded="false" aria-controls="faq-a6" id="faq-q6"><span>¿Cómo completo mi compra después de agregar al carrito?</span><span class="faq-icon" aria-hidden="true">+</span></button><div class="faq-answer" id="faq-a6" role="region" aria-labelledby="faq-q6"><p>Abre tu carrito y selecciona "Ir al Catálogo para Comprar". Tu selección se guarda automáticamente. Desde el catálogo principal puedes finalizar tu pedido o contactarnos por WhatsApp para asesoría.</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="contacto">
+            <div class="container">
+                <p class="sec-label fu" style="margin-bottom:16px;">Contacto</p>
+                <h2 class="h-mix fu" style="font-size:clamp(1.8rem,3vw,2.8rem);margin-bottom:20px;">Reserva tu <em>asesoría</em></h2>
+                <p class="ui-text fu" style="max-width:600px;margin-bottom:0;">Cuéntanos qué tratamiento corporal te interesa y te contactamos por WhatsApp con recomendaciones personalizadas.</p>
+                <div class="contact-grid">
+                    <div class="fu">
+                        <ul class="contact-info-list">
+                            <li class="ui-text">📍 Centro de la Ciudad, Tepic, Nayarit, México</li>
+                            <li class="ui-text">📞 +52 (311) 121-31-28</li>
+                            <li class="ui-text">✉️ contacto@venturezone.com</li>
+                            <li class="ui-text">🕒 Lun - Dom: 24 hrs (WhatsApp) · Respuesta inmediata</li>
+                        </ul>
+                        <div class="social-links">
+                            <a href="https://www.facebook.com/profile.php?id=100083406701528" class="social-link" target="_blank" rel="noopener noreferrer" title="Facebook Venture Zone" aria-label="Facebook"><img src="../images/facebook.png" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+                            <a href="https://instagram.com/venturezone" class="social-link" target="_blank" rel="noopener noreferrer" title="Instagram @venturezone" aria-label="Instagram"><img src="../images/instagram.jpg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+                            <a href="https://wa.me/523111213128" class="social-link" target="_blank" rel="noopener noreferrer" title="WhatsApp +52 311 121-31-28" aria-label="WhatsApp"><img src="../images/Whatapps.jpg" alt="" width="24" height="24" loading="lazy" decoding="async"></a>
+                        </div>
+                    </div>
+                    <form class="fu" id="contactForm" novalidate>
+                        <div class="field-wrap">
+                            <label class="sec-label" style="display:block;margin-bottom:8px;" for="nombre">Nombre</label>
+                            <input type="text" class="f-input" id="nombre" name="nombre" required placeholder="Tu nombre" autocomplete="name" aria-describedby="nombre-error">
+                            <span class="field-error" id="nombre-error" role="alert"></span>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="sec-label" style="display:block;margin-bottom:8px;" for="telefono">Teléfono</label>
+                            <input type="tel" class="f-input" id="telefono" name="telefono" required placeholder="+52 311 000 0000" autocomplete="tel" aria-describedby="telefono-error">
+                            <span class="field-error" id="telefono-error" role="alert"></span>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="sec-label" style="display:block;margin-bottom:8px;" for="email">Email</label>
+                            <input type="email" class="f-input" id="email" name="email" required placeholder="tu@email.com" autocomplete="email" aria-describedby="email-error">
+                            <span class="field-error" id="email-error" role="alert"></span>
+                        </div>
+                        <div class="field-wrap">
+                            <label class="sec-label" style="display:block;margin-bottom:8px;" for="producto">Producto de interés</label>
+                            <select class="f-input" id="producto" name="producto" aria-describedby="producto-error" style="cursor:pointer;">
+                                <option value="">Selecciona un producto</option>
+                                <option value="Gel Corps">Gel Corps</option>
+                                <option value="Hands de Manos">Hands de Manos</option>
+                                <option value="Hydra Power">Hydra Power</option>
+                                <option value="Lifting Bumbum">Lifting Bumbum</option>
+                                <option value="Strax">Strax</option>
+                                <option value="Varios">Varios / Asesoría general</option>
+                            </select>
+                            <span class="field-error" id="producto-error" role="alert"></span>
+                        </div>
+                        <div class="field-wrap" style="margin-bottom:32px;">
+                            <label class="sec-label" style="display:block;margin-bottom:8px;" for="mensaje">Mensaje</label>
+                            <textarea class="f-input" id="mensaje" name="mensaje" required placeholder="Cuéntanos qué tratamiento buscas..." aria-describedby="mensaje-error"></textarea>
+                            <span class="field-error" id="mensaje-error" role="alert"></span>
+                        </div>
+                        <button type="submit" class="btn-p" style="width:100%;">Enviar Reserva vía WhatsApp</button>
+                        <p class="sec-label" style="margin-top:12px;text-align:center;">Al enviar, se abrirá WhatsApp con tu solicitud de reserva.</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+        <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 Venture Zone. Todos los derechos reservados.</p>
         </div>
     </footer>
 
-    <script>
-        // Variables globales para el carrusel
-        let autoCarousel = null;
-        let isRunning = false;
-        
-        // Variables globales para el carrito
-        let cartItems = [];
-        let cartCount = 0;
-        
-        // Versión actualizada - Sin botón de pago directo
-        console.log('🔄 Página de Cuidado Corporal - Versión actualizada sin pago directo - ' + new Date().getTime());
+    <a href="https://wa.me/523111213128?text=Hola%20Venture%20Zone%2C%20me%20interesa%20la%20l%C3%ADnea%20de%20cuidado%20corporal." class="wa-fab" id="waFab" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <span class="wa-fab-pulse" aria-hidden="true"></span>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.435 9.884-9.881 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
 
-        // Cargar carrito desde localStorage al iniciar
-        function loadCartFromStorage() {
-            const savedCart = localStorage.getItem('ventureZoneCart');
-            if (savedCart) {
-                try {
-                    const cartData = JSON.parse(savedCart);
-                    cartItems = cartData.items || [];
-                    cartCount = cartData.count || 0;
-                    updateCartDisplay();
-                    console.log('🛒 Carrito cargado desde localStorage:', cartData);
-                } catch (error) {
-                    console.error('Error al cargar el carrito:', error);
-                    // Si hay error, inicializar carrito vacío
-                    cartItems = [];
-                    cartCount = 0;
-                    updateCartDisplay();
-                }
-            }
+    <div class="search-modal" id="searchModal">
+        <div class="search-modal-content">
+            <div class="search-modal-header">
+                <h3 class="h-mix" style="font-size:1rem;">Buscar Productos</h3>
+                <button class="search-modal-close" id="searchModalClose">✕</button>
+            </div>
+            <input type="text" class="search-modal-input" placeholder="Escribe el nombre del producto..." id="searchModalInput">
+            <div id="searchModalResults"></div>
+        </div>
+    </div>
+
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+
+        function syncThemeUI(theme) {
+            themeToggle?.setAttribute('aria-label', theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro');
+            themeToggle?.setAttribute('title', theme === 'dark' ? 'Modo oscuro activo' : 'Modo claro activo');
+            document.querySelector('meta[name="theme-color"]')?.setAttribute('content', theme === 'dark' ? '#0f172a' : '#ffffff');
         }
 
-        // Función para sincronizar el carrito con otras páginas
-        function syncCartWithOtherPages() {
-            // Escuchar cambios en localStorage de otras pestañas
-            window.addEventListener('storage', function(e) {
-                if (e.key === 'ventureZoneCart') {
-                    console.log('🔄 Sincronizando carrito desde otra pestaña...');
-                    loadCartFromStorage();
+        function applyTheme(theme, persist = true) {
+            document.documentElement.setAttribute('data-theme', theme);
+            if (persist) localStorage.setItem('theme', theme);
+            syncThemeUI(theme);
+        }
+
+        function triggerThemeFx() {
+            const ripple = themeToggle?.querySelector('.theme-ripple');
+            if (ripple) {
+                ripple.classList.remove('is-active');
+                void ripple.offsetWidth;
+                ripple.classList.add('is-active');
+            }
+            themeToggle?.classList.add('is-pulsing');
+            setTimeout(() => themeToggle?.classList.remove('is-pulsing'), 450);
+        }
+
+        themeToggle?.addEventListener('click', () => {
+            triggerThemeFx();
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            applyTheme(current === 'light' ? 'dark' : 'light');
+        });
+
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) applyTheme(e.matches ? 'dark' : 'light');
+        });
+
+        const savedTheme = localStorage.getItem('theme');
+        const initialTheme = savedTheme || document.documentElement.getAttribute('data-theme') || 'light';
+        applyTheme(initialTheme);
+
+        const motionMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+        const motionOK = !motionMQ.matches;
+        if (!motionOK) document.documentElement.classList.add('no-smooth-scroll');
+        motionMQ.addEventListener('change', (e) => document.documentElement.classList.toggle('no-smooth-scroll', e.matches));
+
+        function initPageLoader() {
+            const loader = document.getElementById('pageLoader');
+            if (!loader) return;
+            document.body.classList.add('is-loading');
+            let hidden = false;
+            const hide = () => {
+                if (hidden) return;
+                hidden = true;
+                loader.classList.add('is-hidden');
+                loader.setAttribute('aria-busy', 'false');
+                loader.setAttribute('aria-hidden', 'true');
+                document.body.classList.remove('is-loading');
+            };
+            const delay = motionOK ? 480 : 0;
+            if (document.readyState === 'complete') setTimeout(hide, delay);
+            else window.addEventListener('load', () => setTimeout(hide, delay), { once: true });
+            setTimeout(hide, 3500);
+        }
+        initPageLoader();
+
+        function navigateWithPageLoader(url) {
+            const loader = document.getElementById('pageLoader');
+            if (!loader) {
+                window.location.href = url;
+                return;
+            }
+            loader.classList.remove('is-hidden');
+            loader.removeAttribute('aria-hidden');
+            loader.setAttribute('aria-busy', 'true');
+            document.body.classList.add('is-loading');
+            setTimeout(() => { window.location.href = url; }, motionOK ? 320 : 0);
+        }
+
+        function initPageNavTransition() {
+            const isHtmlPageLink = (href) => href && !href.startsWith('#') && !/^https?:\/\//i.test(href) && /\.html(?:[#?]|$)/i.test(href);
+
+            document.querySelectorAll('a[href]').forEach((link) => {
+                const href = link.getAttribute('href');
+                if (!isHtmlPageLink(href)) return;
+                link.addEventListener('click', (e) => {
+                    if (e.defaultPrevented || e.button !== 0) return;
+                    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+                    const dest = new URL(link.href, window.location.href);
+                    if (dest.pathname.replace(/\/$/, '') === window.location.pathname.replace(/\/$/, '') && !dest.hash) return;
+                    e.preventDefault();
+                    navigateWithPageLoader(link.href);
+                });
+            });
+
+            document.querySelectorAll('[data-href]').forEach((el) => {
+                const href = el.getAttribute('data-href');
+                if (!isHtmlPageLink(href)) return;
+                el.addEventListener('click', () => navigateWithPageLoader(new URL(href, window.location.href).href));
+            });
+        }
+        initPageNavTransition();
+
+        function initScrollAnimations() {
+            if (!motionOK) {
+                document.querySelectorAll('.fu, .section-reveal').forEach(el => el.classList.add('vis'));
+                return;
+            }
+            const fadeObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('vis');
+                    fadeObs.unobserve(entry.target);
+                });
+            }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+            document.querySelectorAll('.fu, .section-reveal').forEach(el => fadeObs.observe(el));
+            document.querySelectorAll('.grid-2, .grid-3, .grid-4, .grid-auto, .services-grid, #productsGrid').forEach(container => {
+                container.querySelectorAll('.fu').forEach((el, i) => { el.style.transitionDelay = `${Math.min(i * 0.08, 0.48)}s`; });
+            });
+            document.querySelectorAll('.hero .fu').forEach((el, i) => {
+                el.style.transitionDelay = `${0.12 + i * 0.1}s`;
+                requestAnimationFrame(() => el.classList.add('vis'));
+            });
+        }
+
+        function initSectionTransitions() {
+            if (!motionOK) {
+                document.querySelectorAll('.section, .section-alt').forEach(s => s.classList.add('section-vis'));
+                return;
+            }
+            const sectionObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('section-vis');
+                        sectionObs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
+            document.querySelectorAll('.section, .section-alt').forEach(sec => sectionObs.observe(sec));
+        }
+
+        function initCounters() {
+            const counters = document.querySelectorAll('.counter[data-count]');
+            if (!counters.length) return;
+            const setFinal = (el) => {
+                const target = parseFloat(el.dataset.count);
+                const prefix = el.dataset.prefix || '';
+                const suffix = el.dataset.suffix || '';
+                el.textContent = prefix + target + suffix;
+            };
+            if (!motionOK) { counters.forEach(setFinal); return; }
+            const counterObs = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    counterObs.unobserve(el);
+                    const target = parseFloat(el.dataset.count);
+                    const prefix = el.dataset.prefix || '';
+                    const suffix = el.dataset.suffix || '';
+                    const duration = 1400;
+                    const start = performance.now();
+                    const tick = (now) => {
+                        const p = Math.min((now - start) / duration, 1);
+                        const eased = 1 - Math.pow(1 - p, 3);
+                        el.textContent = prefix + Math.round(target * eased) + suffix;
+                        if (p < 1) requestAnimationFrame(tick);
+                        else el.textContent = prefix + target + suffix;
+                    };
+                    requestAnimationFrame(tick);
+                });
+            }, { threshold: 0.4 });
+            counters.forEach(el => counterObs.observe(el));
+        }
+
+        function initSmoothScroll() {
+            const nav = document.querySelector('.site-nav');
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    const hash = anchor.getAttribute('href');
+                    if (!hash || hash === '#') return;
+                    const target = document.querySelector(hash);
+                    if (!target) return;
+                    e.preventDefault();
+                    const navH = nav?.offsetHeight || 68;
+                    const top = target.getBoundingClientRect().top + window.scrollY - navH;
+                    window.scrollTo({ top, behavior: motionOK ? 'smooth' : 'auto' });
+                    target.setAttribute('tabindex', '-1');
+                    target.focus({ preventScroll: true });
+                });
+            });
+        }
+
+        function initButtonRipples() {
+            if (!motionOK) return;
+            const selectors = '.btn-p, .btn-s, .buy-button, .filter-tab, .nav-search-btn, .btn-accent, .faq-question';
+            document.addEventListener('click', (e) => {
+                const btn = e.target.closest(selectors);
+                if (!btn || btn.disabled) return;
+                const rect = btn.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                const ripple = document.createElement('span');
+                ripple.className = 'btn-ripple-fx';
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+                btn.appendChild(ripple);
+                ripple.addEventListener('animationend', () => ripple.remove(), { once: true });
+            }, { passive: true });
+        }
+
+        function initLazyImages() {
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                const mark = () => img.classList.add('is-loaded');
+                if (img.complete) mark();
+                else {
+                    img.addEventListener('load', mark, { once: true });
+                    img.addEventListener('error', mark, { once: true });
                 }
             });
         }
 
-        // Guardar carrito en localStorage
-        function saveCartToStorage() {
-            const cartData = {
-                items: cartItems,
-                count: cartCount,
-                timestamp: Date.now()
+        function initFaqAccordion() {
+            document.querySelectorAll('.faq-question').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const item = btn.closest('.faq-item');
+                    const isOpen = item.classList.contains('is-open');
+                    document.querySelectorAll('.faq-item').forEach(i => {
+                        i.classList.remove('is-open');
+                        i.querySelector('.faq-question')?.setAttribute('aria-expanded', 'false');
+                    });
+                    if (!isOpen) {
+                        item.classList.add('is-open');
+                        btn.setAttribute('aria-expanded', 'true');
+                    }
+                });
+            });
+        }
+
+        function initContactFormValidation() {
+            const form = document.getElementById('contactForm');
+            if (!form) return;
+            const rules = {
+                nombre: { validate: (v) => v.trim().length >= 2, message: 'Ingresa al menos 2 caracteres.' },
+                telefono: { validate: (v) => /^[\d\s+\-()]{8,}$/.test(v.trim()), message: 'Introduce un teléfono válido.' },
+                email: { validate: (v) => /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(v.trim()), message: 'Introduce un email válido.' },
+                mensaje: { validate: (v) => v.trim().length >= 10, message: 'El mensaje debe tener al menos 10 caracteres.' }
             };
-            localStorage.setItem('ventureZoneCart', JSON.stringify(cartData));
-            localStorage.setItem('venturazone_cart', JSON.stringify(cartData)); // Para compatibilidad con pago.html
-            console.log('💾 Carrito guardado en localStorage:', cartData);
-        }
-        
-        // Función para controlar el carrusel manual
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('cuidadoCorporalCarousel');
-            const cardWidth = 280; // Ancho de tarjeta + gap
-            
-            if (direction === 'left') {
-                carousel.scrollBy({
-                    left: -cardWidth,
-                    behavior: 'smooth'
-                });
-            } else {
-                carousel.scrollBy({
-                    left: cardWidth,
-                    behavior: 'smooth'
-                });
+            function validateField(id, force = false) {
+                const input = document.getElementById(id);
+                const errorEl = document.getElementById(`${id}-error`);
+                if (!input || !rules[id]) return true;
+                const rule = rules[id];
+                const valid = rule.validate(input.value);
+                const showError = !valid && (force || input.value.length > 0);
+                input.classList.toggle('is-invalid', showError);
+                input.classList.toggle('is-valid', valid && input.value.length > 0);
+                input.setAttribute('aria-invalid', showError ? 'true' : 'false');
+                if (errorEl) errorEl.textContent = showError ? rule.message : '';
+                return valid;
             }
-            
-            // Pausar temporalmente el carrusel automático
-            pauseAutoCarousel();
-            setTimeout(() => {
-                startAutoCarousel();
-            }, 3000);
-            
-            // Actualizar visibilidad de flechas después del scroll
-            setTimeout(updateArrowVisibility, 500);
-        }
-
-        // Función para actualizar la visibilidad de las flechas
-        function updateArrowVisibility() {
-            const carousel = document.getElementById('cuidadoCorporalCarousel');
-            const leftArrow = document.querySelector('.carousel-arrow.left');
-            const rightArrow = document.querySelector('.carousel-arrow.right');
-            
-            // Verificar si se puede hacer scroll hacia la izquierda
-            if (carousel.scrollLeft <= 0) {
-                leftArrow.classList.add('hidden');
-            } else {
-                leftArrow.classList.remove('hidden');
-            }
-            
-            // Verificar si se puede hacer scroll hacia la derecha
-            if (carousel.scrollLeft >= carousel.scrollWidth - carousel.clientWidth - 10) {
-                rightArrow.classList.add('hidden');
-            } else {
-                rightArrow.classList.remove('hidden');
-            }
-        }
-
-        // Función para imprimir/exportar a PDF
-        function printCatalog() {
-            window.print();
-        }
-
-        // Función para iniciar el carrusel automático
-        function startAutoCarousel() {
-            console.log('🚀 Iniciando carrusel automático...');
-            
-            // Detener cualquier carrusel existente
-            pauseAutoCarousel();
-            
-            isRunning = true;
-            
-            autoCarousel = setInterval(() => {
-                if (!isRunning) return;
-                
-                const carousel = document.getElementById('cuidadoCorporalCarousel');
-                if (!carousel) {
-                    console.log('❌ Carrusel no encontrado');
+            Object.keys(rules).forEach(id => {
+                const input = document.getElementById(id);
+                input?.addEventListener('input', () => validateField(id));
+                input?.addEventListener('blur', () => validateField(id, true));
+            });
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const ok = Object.keys(rules).every(id => validateField(id, true));
+                if (!ok) {
+                    form.querySelector('.is-invalid, [aria-invalid="true"]')?.focus();
                     return;
                 }
-                
-                const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-                const currentScroll = carousel.scrollLeft;
-                const cardWidth = 280;
-                
-                console.log(`📊 Scroll: ${currentScroll}/${maxScroll}`);
-                
-                // Si llegamos al final, volver al inicio
-                if (currentScroll >= maxScroll - 50) {
-                    console.log('🔄 Volviendo al inicio...');
-                    carousel.scrollTo({ left: 0, behavior: 'smooth' });
-                } else {
-                    console.log('➡️ Avanzando...');
-                    carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
-                }
-                
-                setTimeout(updateArrowVisibility, 500);
-            }, 3000);
-            
-            console.log('✅ Carrusel iniciado');
+                sendWhatsApp(e);
+            });
         }
 
-        // Función para pausar el carrusel automático
-        function pauseAutoCarousel() {
-            console.log('⏸️ Pausando carrusel...');
-            isRunning = false;
-            if (autoCarousel) {
-                clearInterval(autoCarousel);
-                autoCarousel = null;
-            }
+        initScrollAnimations();
+        initSectionTransitions();
+        initCounters();
+        initSmoothScroll();
+        initButtonRipples();
+        initLazyImages();
+        initFaqAccordion();
+        initContactFormValidation();
+
+        const mobileMenu = document.getElementById('mobileMenu');
+        const menuToggle = document.getElementById('menuToggle');
+        function closeMobileMenu() {
+            mobileMenu.classList.remove('open');
+            menuToggle?.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = '';
+        }
+        menuToggle?.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('open');
+            menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        mobileMenu?.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMobileMenu));
+        window.addEventListener('resize', () => { if (window.innerWidth >= 1024) closeMobileMenu(); });
+
+        function sendWhatsApp(e) {
+            if (e) e.preventDefault();
+            const nombre = document.getElementById('nombre').value.trim();
+            const telefono = document.getElementById('telefono').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const producto = document.getElementById('producto').value.trim();
+            const mensaje = document.getElementById('mensaje').value.trim();
+            let text = `Hola Venture Zone, soy ${nombre}.\nTeléfono: ${telefono}\nEmail: ${email}`;
+            if (producto) text += `\nProducto de interés: ${producto}`;
+            text += `\n\nReserva / consulta de cuidado corporal:\n${mensaje}`;
+            window.open(`https://wa.me/523111213128?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
         }
 
+        const searchProducts = [
+            { name: 'Gel Corps', description: 'Gel Modelador Reduce medidas y grasa localizada', price: '$430', image: '../images/CUIDADOPERSONAL.jpg' },
+            { name: 'Hands de Manos', description: 'Crema Guante de Silicona para las manos', price: '$166', image: '../images/hands.jpg' },
+            { name: 'Hydra Power', description: 'Hidrata y ayuda en la prevención del resecamiento de los pies', price: '$144', image: '../images/hydrapower.jpg' },
+            { name: 'Lifting Bumbum', description: 'Gel Firmador para Gluteos', price: '$480', image: '../images/bumbum.jpg' },
+            { name: 'Strax', description: 'Productos para el bienestar corporal', price: '$257', image: '../images/strax.jpg' }
+        ];
 
-        // Inicializar cuando se carga la página
         document.addEventListener('DOMContentLoaded', function() {
-            // Cargar carrito desde localStorage
-            loadCartFromStorage();
-            
-            // Activar sincronización con otras páginas
-            syncCartWithOtherPages();
-            
-            console.log('📄 Página cargada, inicializando carrusel...');
-            
-            // Eliminar botones de pago inmediatamente
-            removePaymentButton();
-            
-            // Actualizar visibilidad de flechas al cargar
-            updateArrowVisibility();
-            
-            // Iniciar el carrusel automático después de 2 segundos
-            setTimeout(() => {
-                console.log('⏰ Iniciando carrusel automático...');
-                startAutoCarousel();
-            }, 2000);
-            
-            // Configurar eventos del carrusel
-            const carousel = document.getElementById('cuidadoCorporalCarousel');
-            if (carousel) {
-                console.log('✅ Carrusel encontrado, configurando eventos...');
-                
-                // Pausar cuando el mouse está sobre el carrusel
-                carousel.addEventListener('mouseenter', () => {
-                    console.log('🖱️ Mouse sobre carrusel, pausando...');
-                    pauseAutoCarousel();
+            const video = document.getElementById('corporalHeroVideo');
+            const videoOverlay = document.getElementById('videoOverlay');
+            const playButton = document.getElementById('playButton');
+            const videoSoundToggle = document.getElementById('videoSoundToggle');
+            if (video) {
+                video.loop = true;
+                video.playsInline = true;
+                video.volume = 0.85;
+
+                function updateSoundToggle() {
+                    if (!videoSoundToggle) return;
+                    const playing = !video.paused && !video.ended;
+                    videoSoundToggle.hidden = !playing;
+                    videoSoundToggle.textContent = video.muted ? '🔇' : '🔊';
+                    videoSoundToggle.setAttribute('aria-label', video.muted ? 'Activar sonido del video' : 'Silenciar video');
+                    videoSoundToggle.setAttribute('title', video.muted ? 'Activar sonido' : 'Silenciar');
+                }
+
+                function playWithSound() {
+                    video.muted = false;
+                    video.volume = 0.85;
+                    return video.play().then(() => {
+                        if (videoOverlay) videoOverlay.style.display = 'none';
+                        updateSoundToggle();
+                    });
+                }
+
+                function attemptAutoplay() {
+                    video.muted = true;
+                    video.play().then(() => {
+                        if (videoOverlay) videoOverlay.style.display = 'none';
+                        updateSoundToggle();
+                    }).catch(() => {
+                        if (videoOverlay) videoOverlay.style.display = 'flex';
+                    });
+                }
+
+                video.addEventListener('loadeddata', attemptAutoplay);
+                video.addEventListener('canplay', attemptAutoplay);
+                video.addEventListener('play', updateSoundToggle);
+                video.addEventListener('pause', updateSoundToggle);
+                video.addEventListener('volumechange', updateSoundToggle);
+
+                playButton?.addEventListener('click', () => {
+                    playWithSound().catch(() => {
+                        if (videoOverlay) videoOverlay.style.display = 'flex';
+                    });
                 });
-                
-                // Reanudar cuando el mouse sale del carrusel
-                carousel.addEventListener('mouseleave', () => {
-                    console.log('🖱️ Mouse fuera del carrusel, reanudando...');
-                    setTimeout(() => {
-                        startAutoCarousel();
-                    }, 1000);
+
+                videoSoundToggle?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    video.muted = !video.muted;
+                    if (!video.muted) video.volume = 0.85;
+                    if (video.paused) video.play();
+                    updateSoundToggle();
                 });
-            } else {
-                console.log('❌ No se encontró el carrusel');
             }
+
+            const searchBtn = document.getElementById('searchBtn');
+            const searchModal = document.getElementById('searchModal');
+            const searchModalClose = document.getElementById('searchModalClose');
+            const searchModalInput = document.getElementById('searchModalInput');
+            const searchModalResults = document.getElementById('searchModalResults');
+            const productCards = document.querySelectorAll('.product-card');
+
+            function openSearchModal() {
+                searchModal.classList.add('active');
+                requestAnimationFrame(() => searchModalInput.focus());
+                document.body.style.overflow = 'hidden';
+            }
+            function closeSearchModal() {
+                searchModal.classList.remove('active');
+                setTimeout(() => { searchModalInput.value = ''; searchModalResults.innerHTML = ''; }, 300);
+                document.body.style.overflow = '';
+            }
+            function performSearch(query) {
+                if (query.length < 2) { searchModalResults.innerHTML = '<div class="no-results">Escribe al menos 2 caracteres</div>'; return; }
+                const filtered = searchProducts.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.description.toLowerCase().includes(query.toLowerCase()));
+                searchModalResults.innerHTML = filtered.length === 0 ? '<div class="no-results">No se encontraron productos</div>' :
+                    filtered.map(p => `<div class="search-modal-result-item" role="button" tabindex="0" onclick="selectProductFromModal('${p.name.replace(/'/g, "\\'")}')"><img src="${p.image}" alt="" class="search-modal-result-image" loading="lazy" decoding="async" width="56" height="56"><div class="search-modal-result-info"><h4>${p.name}</h4><p>${p.description}</p></div><div class="search-modal-result-price">${p.price}</div></div>`).join('');
+            }
+            window.selectProductFromModal = function(productName) {
+                closeSearchModal();
+                productCards.forEach(card => {
+                    const cardName = card.dataset.product || '';
+                    const show = cardName.toLowerCase().includes(productName.toLowerCase());
+                    card.style.display = show ? '' : 'none';
+                    if (show) card.scrollIntoView({ behavior: motionOK ? 'smooth' : 'auto', block: 'center' });
+                });
+            };
+            searchBtn?.addEventListener('click', openSearchModal);
+            searchModalClose?.addEventListener('click', closeSearchModal);
+            searchModalInput?.addEventListener('input', function() { performSearch(this.value); });
+            searchModal?.addEventListener('click', e => { if (e.target === searchModal) closeSearchModal(); });
+            document.addEventListener('keydown', e => { if (e.key === 'Escape' && searchModal?.classList.contains('active')) closeSearchModal(); });
+
+            loadCartFromStorage();
+            syncCartWithOtherPages();
         });
 
-        // Funciones globales para controlar el carrusel
-        window.startCarousel = function() {
-            console.log('🎮 Iniciando carrusel manualmente...');
-            startAutoCarousel();
-        };
-        
-        window.stopCarousel = function() {
-            console.log('🛑 Deteniendo carrusel manualmente...');
-            pauseAutoCarousel();
-        };
+        let cartItems = [], cartCount = 0, buttonClicking = false;
 
-        // Hacer las funciones del carrito disponibles globalmente
-        window.goToCatalog = goToCatalog;
-        
-        // Eliminar completamente la función proceedToCheckout
-        window.proceedToCheckout = undefined;
-        
-        // Función para eliminar cualquier botón de pago que pueda aparecer dinámicamente
-        function removePaymentButton() {
-            // Buscar botones por texto
-            const allButtons = document.querySelectorAll('button');
-            allButtons.forEach(button => {
-                if (button.textContent.includes('Proceder al Pago') || 
-                    button.textContent.includes('proceedToCheckout') ||
-                    button.onclick && button.onclick.toString().includes('proceedToCheckout')) {
-                    console.log('🚫 Eliminando botón de pago:', button.textContent);
-                    button.remove();
-                }
-            });
-            
-            // Buscar botones por onclick
-            const paymentButtons = document.querySelectorAll('button[onclick*="proceedToCheckout"]');
-            paymentButtons.forEach(button => {
-                console.log('🚫 Eliminando botón de pago por onclick:', button.textContent);
-                button.remove();
-            });
-            
-            // Buscar botones naranjas que puedan ser de pago
-            const orangeButtons = document.querySelectorAll('button[style*="orange"], button[style*="#ff6b35"], button[style*="#ff6b35"]');
-            orangeButtons.forEach(button => {
-                if (button.textContent.includes('Pago') || button.textContent.includes('Payment')) {
-                    console.log('🚫 Eliminando botón naranja de pago:', button.textContent);
-                    button.remove();
-                }
-            });
-        }
-        
-        // Ejecutar la función más frecuentemente
-        setInterval(removePaymentButton, 200);
-
-        // Función para alternar el carrusel (pausar/reanudar)
-        function toggleCarousel() {
-            const toggleBtn = document.getElementById('carouselToggle');
-            
-            if (isRunning) {
-                pauseAutoCarousel();
-                toggleBtn.textContent = '▶️ Reanudar';
-                toggleBtn.classList.add('paused');
-                console.log('⏸️ Carrusel pausado por el usuario');
-            } else {
-                startAutoCarousel();
-                toggleBtn.textContent = '⏸️ Pausar';
-                toggleBtn.classList.remove('paused');
-                console.log('▶️ Carrusel reanudado por el usuario');
+        function loadCartFromStorage() {
+            const saved = localStorage.getItem('ventureZoneCart');
+            if (saved) {
+                try { const d = JSON.parse(saved); cartItems = d.items || []; cartCount = d.count || 0; updateCartDisplay(); }
+                catch { cartItems = []; cartCount = 0; updateCartDisplay(); }
             }
         }
-
-        // Funciones del selector de cantidad
-        function increaseQuantity(productId) {
-            const quantityElement = document.getElementById('quantity' + productId.slice(-1));
-            let currentQuantity = parseInt(quantityElement.textContent);
-            if (currentQuantity < 99) { // Límite máximo de 99
-                quantityElement.textContent = currentQuantity + 1;
-            }
+        function syncCartWithOtherPages() {
+            window.addEventListener('storage', e => { if (e.key === 'ventureZoneCart') loadCartFromStorage(); });
         }
-
-        function decreaseQuantity(productId) {
-            const quantityElement = document.getElementById('quantity' + productId.slice(-1));
-            let currentQuantity = parseInt(quantityElement.textContent);
-            if (currentQuantity > 1) { // Límite mínimo de 1
-                quantityElement.textContent = currentQuantity - 1;
-            }
+        function saveCartToStorage() {
+            const d = { items: cartItems, count: cartCount, timestamp: Date.now() };
+            localStorage.setItem('ventureZoneCart', JSON.stringify(d));
+            localStorage.setItem('venturazone_cart', JSON.stringify(d));
+            localStorage.setItem('carrito_venturazone', JSON.stringify(cartItems));
         }
-
-        function getQuantity(productId) {
-            const quantityElement = document.getElementById('quantity' + productId.slice(-1));
-            return parseInt(quantityElement.textContent);
+        function increaseQuantity(id) {
+            if (buttonClicking) return; buttonClicking = true;
+            const el = document.getElementById('quantity' + id.replace('product', ''));
+            if (el) el.textContent = parseInt(el.textContent) + 1;
+            setTimeout(() => { buttonClicking = false; }, 100);
         }
-
-        // Funciones del carrito
-        function addToCart(productName, price, productId) {
-            const quantity = getQuantity(productId);
-            const existingItem = cartItems.find(item => item.name === productName);
-            
-            if (existingItem) {
-                existingItem.quantity += quantity;
-            } else {
-                cartItems.push({
-                    name: productName,
-                    price: price,
-                    quantity: quantity,
-                    id: productId
-                });
-            }
-            
-            cartCount += quantity;
-            updateCartDisplay();
-            saveCartToStorage(); // Guardar en localStorage
-            
-            // Mostrar notificación
-            showCartNotification(productName, quantity);
+        function decreaseQuantity(id) {
+            if (buttonClicking) return; buttonClicking = true;
+            const el = document.getElementById('quantity' + id.replace('product', ''));
+            if (el && parseInt(el.textContent) > 1) el.textContent = parseInt(el.textContent) - 1;
+            setTimeout(() => { buttonClicking = false; }, 100);
         }
+        function getQuantity(id) { return parseInt(document.getElementById('quantity' + id.replace('product', ''))?.textContent) || 1; }
 
+        function addToCart(name, price, id) {
+            const qty = getQuantity(id);
+            const ex = cartItems.find(i => i.name === name);
+            if (ex) ex.quantity += qty; else cartItems.push({ name, price, quantity: qty, id });
+            cartCount += qty; updateCartDisplay(); saveCartToStorage(); showCartNotification(name, qty);
+        }
         function updateCartDisplay() {
-            // Buscar tanto por ID como por clase para compatibilidad con catalogo.html
-            const cartCountElement = document.getElementById('cartCount') || document.querySelector('.cart-count');
-            if (cartCountElement) {
-                cartCountElement.textContent = cartCount;
-                
-                // Animación cuando se agrega un producto
-                cartCountElement.style.transform = 'scale(1.2)';
-                setTimeout(() => {
-                    cartCountElement.style.transform = 'scale(1)';
-                }, 200);
-            }
+            const el = document.querySelector('.cart-count');
+            if (el) { el.textContent = cartCount; el.style.transform = 'scale(1.2)'; setTimeout(() => { el.style.transform = 'scale(1)'; }, 200); }
         }
-
+        function showCartNotification(name, qty) {
+            const n = document.createElement('div');
+            n.style.cssText = 'position:fixed;top:80px;right:20px;background:var(--surface-inverse);color:var(--text-on-inverse);padding:14px 20px;font-family:Arial;font-size:0.65rem;letter-spacing:.14em;text-transform:uppercase;z-index:10001;animation:slideIn .3s ease-out;border:1px solid var(--border-color);';
+            n.textContent = `✓ ${name}${qty > 1 ? ' (' + qty + ')' : ''} agregado`;
+            document.body.appendChild(n);
+            setTimeout(() => { n.style.animation = 'slideOut .3s ease-in'; setTimeout(() => n.remove(), 300); }, 3000);
+        }
         function openCart() {
-            if (cartItems.length === 0) {
-                alert('Tu carrito está vacío');
-                return;
-            }
-            
-            console.log('🛒 Abriendo carrito con', cartItems.length, 'productos');
-            
-            // Crear modal del carrito
+            if (!cartItems.length) { alert('Tu carrito está vacío'); return; }
             const modal = document.createElement('div');
-            modal.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0,0,0,0.8);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                z-index: 10000;
-            `;
-            
-            const cartContent = document.createElement('div');
-            cartContent.style.cssText = `
-                background: white;
-                border-radius: 15px;
-                padding: 30px;
-                max-width: 500px;
-                width: 90%;
-                max-height: 80vh;
-                overflow-y: auto;
-                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            `;
-            
+            modal.className = 'cart-modal-overlay';
+            modal.style.cssText = 'position:fixed;inset:0;background:var(--modal-overlay);display:flex;justify-content:center;align-items:center;z-index:10000;';
+            modal.setAttribute('role', 'dialog');
+            modal.setAttribute('aria-modal', 'true');
+            modal.setAttribute('aria-label', 'Carrito de compras');
+            const box = document.createElement('div');
+            box.className = 'cart-modal-box';
+            box.style.cssText = 'background:var(--card-bg);border:1px solid var(--border-color);color:var(--text-primary);padding:40px;max-width:500px;width:90%;max-height:80vh;overflow-y:auto;';
             let total = 0;
-            let cartHTML = '<h2 style="text-align: center; margin-bottom: 20px; color: #333;">🛒 Carrito de Compras</h2><p style="text-align: center; color: #666; margin-bottom: 20px; font-size: 14px;">💡 Ve al catálogo principal para completar tu compra</p><p style="text-align: center; color: #999; font-size: 10px; margin-bottom: 10px;">Versión sin pago directo: ' + new Date().getTime() + '</p>';
-            
-            cartItems.forEach((item, index) => {
-                const itemTotal = item.price * item.quantity;
-                total += itemTotal;
-                
-                cartHTML += `
-                    <div style="display: flex; justify-content: space-between; align-items: center; padding: 15px; border: 1px solid #eee; border-radius: 10px; margin-bottom: 10px; background: #f9f9f9;">
-                        <div>
-                            <h4 style="margin: 0; color: #333;">${item.name}</h4>
-                            <p style="margin: 5px 0; color: #666;">$${item.price} c/u</p>
-                        </div>
-                        <div style="display: flex; align-items: center; gap: 10px;">
-                            <button onclick="removeFromCart(${index})" style="background: #ff4444; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">-</button>
-                            <span style="font-weight: bold; min-width: 30px; text-align: center;">${item.quantity}</span>
-                            <button onclick="addToCart('${item.name}', ${item.price}, '${item.id || 'temp'}')" style="background: #4CAF50; color: white; border: none; border-radius: 50%; width: 30px; height: 30px; cursor: pointer; font-weight: bold;">+</button>
-                        </div>
-                        <div style="text-align: right;">
-                            <p style="margin: 0; font-weight: bold; color: #333;">$${itemTotal}</p>
-                        </div>
-                    </div>
-                `;
+            let html = '<h2 class="h-mix" style="text-align:center;margin-bottom:8px;font-size:1.2rem;">🛒 Carrito</h2><p class="sec-label" style="text-align:center;margin-bottom:24px;">Ve al catálogo principal para completar tu compra</p>';
+            cartItems.forEach((item, i) => {
+                const t = item.price * item.quantity; total += t;
+                const safeName = item.name.replace(/'/g, "\\'");
+                html += `<div style="display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--border-color);gap:12px;flex-wrap:wrap;"><div><h4 style="margin:0;font-size:0.85rem;color:var(--text-primary);">${item.name}</h4><p class="sec-label" style="margin:4px 0;">$${item.price} c/u</p></div><div style="display:flex;align-items:center;gap:10px;"><button type="button" onclick="removeFromCart(${i})" aria-label="Disminuir cantidad de ${item.name}" style="border:1px solid var(--border-color);background:var(--card-bg);color:var(--text-primary);width:28px;height:28px;cursor:pointer;">−</button><span style="font-size:0.72rem;">${item.quantity}</span><button type="button" onclick="addOneFromCart('${safeName}',${item.price},'${item.id||'temp'}')" aria-label="Aumentar cantidad de ${item.name}" style="border:1px solid var(--text-primary);background:var(--text-primary);color:var(--bg-primary);width:28px;height:28px;cursor:pointer;">+</button></div><span class="font-display" style="font-style:italic;color:var(--text-primary);">$${t}</span></div>`;
             });
-            
-            // Calcular envío (gratis si es más de $500)
             const shippingCost = total >= 500 ? 0 : 50;
             const finalTotal = total + shippingCost;
-            
-            cartHTML += `
-                <div style="border-top: 2px solid #eee; padding-top: 20px; margin-top: 20px;">
-                    <div style="background: #f8f9fa; padding: 15px; border-radius: 10px; margin-bottom: 15px;">
-                        <h4 style="margin: 0 0 10px 0; color: #333;">📋 Resumen de Compra</h4>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Subtotal:</span>
-                            <span>$${total}</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-                            <span>Envío:</span>
-                            <span>${shippingCost === 0 ? 'GRATIS' : '$' + shippingCost}</span>
-                        </div>
-                        <div style="border-top: 1px solid #ddd; padding-top: 10px; margin-top: 10px;">
-                            <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
-                                <span>Total:</span>
-                                <span style="color: #ff6b35;">$${finalTotal}</span>
-                            </div>
-                        </div>
-                        ${shippingCost === 0 ? '<p style="color: #4CAF50; font-size: 12px; margin: 5px 0 0 0;">🎉 ¡Envío gratis por compras mayores a $500!</p>' : '<p style="color: #666; font-size: 12px; margin: 5px 0 0 0;">💡 Agrega $' + (500 - total) + ' más para envío gratis</p>'}
-                    </div>
-                    <div style="display: flex; gap: 10px; justify-content: center; flex-wrap: wrap;">
-                        <button onclick="clearCart(); closeCartModal();" style="background: #ff4444; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Vaciar Carrito</button>
-                        <button onclick="window.location.href='catalogo.html';" style="background: #4CAF50; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Ir al Catálogo para Comprar</button>
-                        <button onclick="closeCartModal()" style="background: #666; color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: bold;">Cerrar</button>
-                    </div>
-                </div>
-            `;
-            
-            cartContent.innerHTML = cartHTML;
-            modal.appendChild(cartContent);
-            document.body.appendChild(modal);
-            
-            // Asegurar que no haya botones de pago
-            setTimeout(() => {
-                removePaymentButton();
-            }, 100);
-            
-            // Ejecutar múltiples veces para asegurar que se elimine
-            setTimeout(() => {
-                removePaymentButton();
-            }, 500);
-            
-            setTimeout(() => {
-                removePaymentButton();
-            }, 1000);
-            
-            // Cerrar modal al hacer clic fuera
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    closeCartModal();
-                }
+            html += `<div style="padding-top:20px;margin-top:12px;border-top:1px solid var(--border-color);"><div style="background:var(--bg-secondary);padding:16px;margin-bottom:20px;border:1px solid var(--border-color);"><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.72rem;letter-spacing:0.1em;"><span>Subtotal:</span><span>$${total}</span></div><div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:0.72rem;letter-spacing:0.1em;"><span>Envío:</span><span>${shippingCost === 0 ? 'GRATIS' : '$' + shippingCost}</span></div><div style="display:flex;justify-content:space-between;font-weight:700;font-size:0.85rem;padding-top:12px;border-top:1px solid var(--border-color);"><span>Total:</span><span>$${finalTotal}</span></div>${shippingCost === 0 ? '<p class="sec-label" style="margin:8px 0 0;color:#38a169;">🎉 Envío gratis por compras mayores a $500</p>' : '<p class="sec-label" style="margin:8px 0 0;">Agrega $' + (500 - total) + ' más para envío gratis</p>'}</div><div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;"><button type="button" class="btn-s" onclick="clearCart();closeCartModal();" style="padding:12px 20px;">Vaciar</button><button type="button" class="btn-p" onclick="goToCatalog()" style="padding:12px 20px;">Ir al Catálogo para Comprar</button><button type="button" class="btn-s" onclick="closeCartModal()" style="padding:12px 20px;">Cerrar</button></div></div>`;
+            box.innerHTML = html; modal.appendChild(box); document.body.appendChild(modal);
+            modal.addEventListener('click', e => { if (e.target === modal) closeCartModal(); });
+            document.addEventListener('keydown', function escHandler(e) {
+                if (e.key === 'Escape') { closeCartModal(); document.removeEventListener('keydown', escHandler); }
             });
         }
-        
-        // Función para cerrar el modal del carrito
-        function closeCartModal() {
-            const modal = document.querySelector('div[style*="position: fixed"]');
-            if (modal) {
-                modal.remove();
-            }
+        function addOneFromCart(name, price, id) {
+            const ex = cartItems.find(i => i.name === name);
+            if (ex) { ex.quantity++; cartCount++; updateCartDisplay(); saveCartToStorage(); closeCartModal(); openCart(); }
         }
-        
-        // Función para quitar del carrito
-        function removeFromCart(index) {
-            if (cartItems[index].quantity > 1) {
-                cartItems[index].quantity--;
-                cartCount--;
-            } else {
-                cartItems.splice(index, 1);
-                cartCount--;
-            }
-            updateCartDisplay();
-            saveCartToStorage(); // Guardar en localStorage
-            openCart(); // Refrescar el modal
+        function closeCartModal() { document.querySelector('.cart-modal-overlay')?.remove(); }
+        function removeFromCart(i) {
+            if (cartItems[i].quantity > 1) { cartItems[i].quantity--; cartCount--; }
+            else { cartItems.splice(i, 1); cartCount = Math.max(0, cartCount - 1); }
+            updateCartDisplay(); saveCartToStorage(); closeCartModal(); openCart();
         }
-
-        function clearCart() {
-            cartItems = [];
-            cartCount = 0;
-            updateCartDisplay();
-            saveCartToStorage(); // Guardar en localStorage
-        }
-
-        // Función para ir al catálogo (eliminada la función de checkout)
+        function clearCart() { cartItems = []; cartCount = 0; updateCartDisplay(); saveCartToStorage(); }
         function goToCatalog() {
-            if (cartItems.length === 0) {
-                alert('Tu carrito está vacío');
-                return;
-            }
-            
-            // Guardar carrito en localStorage antes de redirigir
             saveCartToStorage();
-            console.log('🛒 Carrito guardado antes de ir al catálogo:', cartItems);
-            
-            // Redirigir al catálogo principal
-            window.location.href = 'catalogo.html';
+            closeCartModal();
+            navigateWithPageLoader(new URL('catalogo-adaptado.html', window.location.href).href);
         }
 
-        function showCartNotification(productName, quantity) {
-            // Crear notificación temporal
-            const notification = document.createElement('div');
-            notification.style.cssText = `
-                position: fixed;
-                top: 80px;
-                right: 20px;
-                background: #4CAF50;
-                color: white;
-                padding: 15px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-                z-index: 1001;
-                font-weight: bold;
-                animation: slideIn 0.3s ease;
-            `;
-            const quantityText = quantity > 1 ? ` (${quantity} unidades)` : '';
-            notification.textContent = `✅ ${productName}${quantityText} agregado al carrito`;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.animation = 'slideOut 0.3s ease';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 300);
-            }, 2000);
-        }
-
-        // Agregar estilos para las animaciones de notificación
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes slideIn {
-                from { transform: translateX(100%); opacity: 0; }
-                to { transform: translateX(0); opacity: 1; }
-            }
-            @keyframes slideOut {
-                from { transform: translateX(0); opacity: 1; }
-                to { transform: translateX(100%); opacity: 0; }
-            }
-        `;
-        document.head.appendChild(style);
+        window.increaseQuantity = increaseQuantity;
+        window.decreaseQuantity = decreaseQuantity;
+        window.addToCart = addToCart;
+        window.openCart = openCart;
+        window.closeCartModal = closeCartModal;
+        window.removeFromCart = removeFromCart;
+        window.clearCart = clearCart;
+        window.goToCatalog = goToCatalog;
+        window.addOneFromCart = addOneFromCart;
+        window.sendWhatsApp = sendWhatsApp;
 
     </script>
-
-    <!-- Botpress Chat -->
-    <script src="https://cdn.botpress.cloud/webchat/v3.2/inject.js"></script>
-    <script src="https://files.bpcontent.cloud/2025/04/21/19/20250421193440-PR19SX7F.js" defer></script>
-    
-    <script>
-        // Función para abrir el chat
-        window.openBotpressChat = function() {
-            if (window.botpress && window.botpress.webchat) {
-                window.botpress.webchat.open();
-                return true;
-            }
-            return false;
-        };
-
-        // Aplicar animaciones al botón de Botpress
-        function applyBotpressAnimations() {
-            const botpressButton = document.querySelector('[class*="botpress-webchat-button"], [id*="botpress"], .botpress-webchat-button');
-            if (botpressButton) {
-                botpressButton.style.animation = 'chatBounce 3s ease-in-out infinite';
-                botpressButton.style.transition = 'all 0.3s ease';
-                
-                botpressButton.addEventListener('mouseenter', function() {
-                    this.style.transform = 'scale(1.1)';
-                });
-                
-                botpressButton.addEventListener('mouseleave', function() {
-                    this.style.transform = 'scale(1)';
-                });
-            }
-        }
-
-        // Aplicar animaciones cuando se carga la página
-        document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(applyBotpressAnimations, 2000);
-        });
-
-        // Reintentar aplicar animaciones
-        setTimeout(applyBotpressAnimations, 5000);
-    </script>
-
-    <style>
-        /* Animación para el botón de Botpress */
-        @keyframes chatBounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* Estilos para el botón de Botpress */
-        [class*="botpress-webchat-button"],
-        [id*="botpress"],
-        .botpress-webchat-button {
-            animation: chatBounce 3s ease-in-out infinite !important;
-            transition: all 0.3s ease !important;
-        }
-
-        [class*="botpress-webchat-button"]:hover,
-        [id*="botpress"]:hover,
-        .botpress-webchat-button:hover {
-            transform: scale(1.1) !important;
-            animation-play-state: paused !important;
-        }
-    </style>
 </body>
 </html>
-image.png

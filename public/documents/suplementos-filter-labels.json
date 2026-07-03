@@ -1,0 +1,57 @@
+{
+  "category": {
+    "shakes": "Shakes Nutricionales",
+    "proteinas": "Proteínas",
+    "vitaminas": "Vitaminas",
+    "minerales": "Minerales",
+    "energia": "Energía",
+    "inmunidad": "Inmunidad",
+    "bienestar-masculino": "Bienestar Masculino",
+    "bienestar-femenino": "Bienestar Femenino",
+    "herbales": "Herbales",
+    "digestion": "Digestión"
+  },
+  "goal": {
+    "energia": "Energía y vitalidad",
+    "inmunidad": "Apoyar bienestar diario",
+    "musculo": "Ganar masa muscular",
+    "nutricion": "Nutrición completa",
+    "peso": "Control de peso",
+    "rendimiento": "Rendimiento deportivo",
+    "recuperacion": "Recuperación muscular",
+    "digestion": "Salud digestiva",
+    "estres": "Reducir estrés",
+    "sueno": "Mejorar el sueño",
+    "concentracion": "Mejorar concentración",
+    "bienestar-masculino": "Bienestar masculino",
+    "proteccion": "Bienestar diario",
+    "vitalidad": "Vitalidad general",
+    "habitos": "Hábitos saludables"
+  },
+  "format": {
+    "capsulas": "Cápsulas",
+    "polvo": "Polvo",
+    "liquido": "Líquido",
+    "gomitas": "Gomitas"
+  },
+  "gender": {
+    "masculino": "Hombre",
+    "femenino": "Mujer",
+    "unisex": "Unisex",
+    "ninos": "Niños"
+  },
+  "certification": {
+    "organico": "Orgánico",
+    "sin-gluten": "Sin gluten",
+    "vegano": "Vegano",
+    "gmp": "Certificación GMP",
+    "sin-lacteos": "Sin lácteos",
+    "sin-gmo": "Sin OGM"
+  },
+  "price": {
+    "0-150": "Hasta $150",
+    "150-300": "$150 – $300",
+    "300-500": "$300 – $500",
+    "500+": "$500 o más"
+  }
+}
