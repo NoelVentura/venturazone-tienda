@@ -66,39 +66,17 @@
                 <li><a href="areaperfumes.html" class="nav-a">Perfumes</a></li>
                 <li><a href="suplementos.html" class="nav-a">Suplementos</a></li>
                 <li><a href="#tienda" class="nav-a">Tienda</a></li>
-                <li><a href="#reservas" class="nav-a">Reservas</a></li>
                 <li><a href="#contacto" class="nav-a">Contacto</a></li>
             </ul>
             <div class="nav-actions">
-                <button class="nav-search-btn" id="searchBtn"><span class="search-label">Buscar</span></button>
-                <button id="theme-toggle" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar tema">
-                    <span class="theme-toggle-glass">
-                        <span class="theme-toggle-track" aria-hidden="true">
-                            <span class="theme-stars">
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </span>
-                            <span class="theme-toggle-knob">
-                                <svg class="toggle-sun" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g class="sun-rays">
-                                        <line x1="12" y1="2" x2="12" y2="5" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="12" y1="19" x2="12" y2="22" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="2" y1="12" x2="5" y2="12" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="19" y1="12" x2="22" y2="12" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="4.2" y1="4.2" x2="6.4" y2="6.4" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="17.6" y1="17.6" x2="19.8" y2="19.8" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="4.2" y1="19.8" x2="6.4" y2="17.6" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                        <line x1="17.6" y1="6.4" x2="19.8" y2="4.2" stroke="#F59E0B" stroke-width="1.5" stroke-linecap="round"/>
-                                    </g>
-                                    <circle cx="12" cy="12" r="4.5" fill="#FBBF24" stroke="#F59E0B" stroke-width="0.5"/>
-                                </svg>
-                                <svg class="toggle-moon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M18 14.5C16.5 16.8 13.6 18 11 17.2C8.1 16.2 6.5 13.2 7.1 10.2C7.5 8.2 8.8 6.6 10.5 5.7C9.8 7.8 10.2 10.3 11.8 12C13.4 13.7 15.8 14.4 18 14.5Z" fill="#CBD5E1" stroke="#94A3B8" stroke-width="0.5"/>
-                                </svg>
-                            </span>
-                        </span>
-                        <span class="theme-ripple" aria-hidden="true"></span>
-                    </span>
+                <button id="theme-toggle" class="theme-toggle-scene" type="button" aria-label="Cambiar entre modo claro y oscuro" title="Cambiar tema" aria-pressed="false">
+                    <span class="stars" aria-hidden="true">✦ ✦ ✦</span>
+                    <span class="sun" aria-hidden="true"></span>
+                    <span class="moon" aria-hidden="true"></span>
+                    <span class="toggle-thumb" aria-hidden="true"></span>
+                    <span class="theme-ripple" aria-hidden="true"></span>
                 </button>
+                <button class="nav-search-btn" id="searchBtn"><span class="search-label">Buscar</span></button>
                 <button class="cart-btn" onclick="openCart()">🛒<span class="cart-count">0</span></button>
                 <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
@@ -112,7 +90,6 @@
             <a href="areaperfumes.html" class="nav-a">Perfumes</a>
             <a href="suplementos.html" class="nav-a">Suplementos</a>
             <a href="#tienda" class="nav-a">Tienda</a>
-            <a href="#reservas" class="nav-a">Reservas</a>
             <a href="#contacto" class="nav-a">Contacto</a>
         </div>
     </nav>
@@ -716,6 +693,8 @@
         const themeToggle = document.getElementById('theme-toggle');
 
         function syncThemeUI(theme) {
+            themeToggle?.classList.toggle('active', theme === 'dark');
+            themeToggle?.setAttribute('aria-pressed', theme === 'dark' ? 'true' : 'false');
             themeToggle?.setAttribute(
                 'aria-label',
                 theme === 'dark' ? 'Activar modo claro' : 'Activar modo oscuro'
