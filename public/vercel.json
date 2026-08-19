@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/documents/catalogo-adaptado.html",
+      "permanent": false
+    }
+  ]
+}
