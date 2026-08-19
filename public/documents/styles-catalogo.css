@@ -431,18 +431,6 @@
         #tienda .store-categories-note {
             margin: 0 0 16px;
         }
-        /* HIBER SHAKE — el cuadro se adapta al tamaño real de la imagen */
-        #tienda [data-product-id="product4"] .product-image {
-            height: auto;
-            background: transparent;
-            line-height: 0;
-        }
-        #tienda [data-product-id="product4"] .product-image img {
-            width: 100%;
-            height: auto;
-            object-fit: unset;
-            display: block;
-        }
         #recursos {
             padding-top: 40px;
             padding-bottom: 8px;
@@ -455,6 +443,123 @@
         #recursos .guide-item:last-child {
             padding-bottom: 8px;
             border-bottom: none;
+        }
+
+        /* Tarjetas — Sobre Nosotros */
+        #nosotros {
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+        #nosotros .offer-accent {
+            color: var(--color-accent);
+        }
+        #nosotros .nosotros-heading {
+            text-align: center;
+        }
+        #nosotros .about-square-grid {
+            gap: 24px;
+            align-items: start;
+            justify-content: center;
+            justify-items: center;
+        }
+        @media (min-width: 768px) {
+            #nosotros .about-square-grid {
+                grid-template-columns: repeat(2, 320px);
+            }
+        }
+        @media (min-width: 1024px) {
+            #nosotros .about-square-grid {
+                grid-template-columns: repeat(3, 320px);
+            }
+        }
+        #nosotros .about-square-card {
+            aspect-ratio: 2 / 3;
+            width: min(320px, 100%);
+            max-width: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--card-bg);
+            border: 1px solid rgba(var(--shadow-rgb), 0.28);
+            padding: 32px 28px;
+            box-shadow:
+                0 0 0 1px rgba(var(--shadow-rgb), 0.35),
+                0 6px 20px rgba(var(--shadow-rgb), 0.22),
+                0 14px 40px rgba(var(--shadow-rgb), 0.18);
+            transition:
+                border-color var(--duration-fast) var(--ease-smooth),
+                transform var(--duration-med) var(--ease-out),
+                box-shadow var(--duration-med) var(--ease-smooth);
+        }
+        #nosotros .about-square-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(var(--shadow-rgb), 0.38);
+            box-shadow:
+                0 0 0 1px rgba(var(--shadow-rgb), 0.45),
+                0 10px 28px rgba(var(--shadow-rgb), 0.28),
+                0 20px 48px rgba(var(--shadow-rgb), 0.22);
+        }
+        #nosotros .about-square-card--oferta1,
+        #nosotros .about-square-card--oferta2,
+        #nosotros .about-square-card--oferta3 {
+            display: block;
+            padding: 0;
+            overflow: hidden;
+            line-height: 0;
+            background: transparent;
+            border: 1px solid rgba(var(--accent-rgb), 0.45);
+            box-shadow:
+                0 0 0 1px rgba(var(--accent-rgb), 0.5),
+                0 0 16px rgba(var(--accent-rgb), 0.35),
+                0 0 32px rgba(var(--accent-rgb), 0.22),
+                0 6px 24px rgba(var(--accent-rgb), 0.18);
+        }
+        #nosotros .about-square-card--oferta1:hover,
+        #nosotros .about-square-card--oferta2:hover,
+        #nosotros .about-square-card--oferta3:hover {
+            border-color: rgba(var(--accent-rgb), 0.65);
+            box-shadow:
+                0 0 0 1px rgba(var(--accent-rgb), 0.7),
+                0 0 24px rgba(var(--accent-rgb), 0.45),
+                0 0 48px rgba(var(--accent-rgb), 0.3),
+                0 10px 32px rgba(var(--accent-rgb), 0.25);
+        }
+        #nosotros .about-square-card--oferta1 .about-square-img,
+        #nosotros .about-square-card--oferta2 .about-square-img,
+        #nosotros .about-square-card--oferta3 .about-square-img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        #nosotros .about-square-icon {
+            font-size: 2.2rem;
+            display: block;
+            margin-bottom: 16px;
+            line-height: 1;
+        }
+        #nosotros .about-square-card .service-title {
+            font-size: 1.05rem;
+            margin-bottom: 14px;
+        }
+        #nosotros .about-square-card .ui-text {
+            line-height: 1.8;
+        }
+        @media (max-width: 900px) {
+            #nosotros .about-square-card {
+                aspect-ratio: 2 / 3;
+                min-height: 0;
+                width: min(320px, 100%);
+                max-width: 320px;
+            }
+            #nosotros .about-square-card--oferta1 .about-square-img,
+            #nosotros .about-square-card--oferta2 .about-square-img,
+            #nosotros .about-square-card--oferta3 .about-square-img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
         }
 
         /* Sombra gris oscura en contorno — tarjetas de servicios */
